@@ -15,5 +15,7 @@ var str = "";
             str+=x+ " ";
         }
         x++
+
+        // kbhg
     }while (x<1000)
 console.log(str);
