@@ -16,6 +16,6 @@ var str = "";
         }
         x++
 
-        // kbhg
+        // kbhg66
     }while (x<1000)
 console.log(str);
