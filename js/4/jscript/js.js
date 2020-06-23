@@ -59,5 +59,6 @@ for (var str="", k2=0, i=0;i<array.length;i++){
         }
         k1++
     }
+
 }
 console.log(str);
