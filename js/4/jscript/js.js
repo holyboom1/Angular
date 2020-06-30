@@ -50,15 +50,26 @@ for (var max=-Infinity, min=+Infinity,i=0;i<array.length;i++){
 }
 console.log("минимальное =" + min + "  максимальное = " + max)
 console.log("наш массив  " + array)
-for (var str="", k2=0, i=0;i<array.length;i++){
-    var k1=0;
-    while (k1<array.length) {
-        if (array[i] == array[k1]) {
-            str += array[i];
+
+var array1=[];
+array1=[].concat(array);
+for (var i=0, newarr=[];i<array1.length;i++) {
+    var k = 0;
+    for (var j = 0; j < array1.length; j++) {
+        if (array1[i] == array1[j] && k != 2) {
+            k++
+            array1.splice(j,1);
+
+        } else if (k == 2) {
+            newarr.push(array1[i]);
+            array1.splice(i,1);
+        }
 
         }
-        k1++
-    }
 
 }
-console.log(str);
+
+
+console.log(newarr);
+
+console.log(newarr.join(" "));
