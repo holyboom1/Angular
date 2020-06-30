@@ -21,6 +21,11 @@ var k=0;
 var k1=0;
 for (let i = 0, x=0; i<array.length ; i++ ){
     x=array[i]
+    if (k>k1){
+        k1=k;
+        k=0
+        max=array[i]
+
     for (let i1=0; i1<array.length; i1++) {
 
         if (x==array[i1]  ){
@@ -28,10 +33,7 @@ for (let i = 0, x=0; i<array.length ; i++ ){
 
 
         }
-    if (k>k1){
-        k1=k;
-        k=0
-        max=array[i]
+
     }
 
 }
