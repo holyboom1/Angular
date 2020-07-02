@@ -4,7 +4,7 @@ function randomInteger(min, max) {
   return Math.round(rand);
 }
 
-var n = randomInteger(3,8);
+var n = randomInteger(3,9);
 var array = [];
 var str=""; var strNew="";
 
@@ -56,18 +56,49 @@ for (var i=0, sum=0 , k=1 , str=""; i<array.length; i++){
 console.log("\n" + str);
 
 // макс элемент заменить звездой
-var max=0;
-for (var i=0; i<array.length; i++){
-	for (var j=0; j<array.length; j++)
-		if (array[i][j]>max){
-			max=array[i][j];
-		}
+// var max=0;
+// for (var i=0; i<array.length; i++){
+// 	for (var j=0; j<array.length; j++)
+// 		if (array[i][j]>max){
+// 			max=array[i][j];
+// 		}
+// }
+// for (var i=0, strNew=""; i<array.length; i++){
+// 	for (var j=0; j<array.length; j++)
+// 		if (array[i][j]==max){
+// 			array[i][j]="*";
+// 		}
+// 	strNew+=array[i].join(" ") + "\n";
+// }
+// console.log(strNew)
+
+// сумма по диагонили
+
+console.log(array)
+for (var i=0 , str=0; i<array.length; i++) {
+	str+=array[i][i]
 }
-for (var i=0, strNew=""; i<array.length; i++){
-	for (var j=0; j<array.length; j++)
-		if (array[i][j]==max){
-			array[i][j]="*";
-		}
-	strNew+=array[i].join(" ") + "\n";
+console.log("сумма по диагонили 1 =" + str)
+
+for (var i=0, str1=0; i<array.length; i++) {
+	str1+=array[i][array.length-1-i]
 }
-console.log(strNew)
+console.log("сумма по диагонили 2=" + str1)
+
+// диагональ треугальником
+
+for (var i=0 ,j=0, str=0; i<array.length; i++ ) {
+	str+=array[i][i]
+	if (i!=0) str+=array[i][j]
+	if (i!=0 && i!=array.length-1) str+=array[array.length-1][i]
+
+}
+console.log("сумма по диагонили 3 =" + str)
+
+for (var i=0, str1=0; i<array.length; i++) {
+	str1+=array[i][array.length-1-i]
+	if (i!=array.length-1) str+=array[i][j]
+	if (i!=0 && i!=array.length-1) str+=array[array.length-1][i]
+
+}
+console.log("сумма по диагонили 4=" + str1)
