@@ -4,7 +4,7 @@ function randomInteger(min, max) {
   return Math.round(rand);
 }
 
-var n = randomInteger(5,5);
+var n = randomInteger(3,9);
 var array = [];
 var str=""; var strNew="";
 
@@ -31,31 +31,39 @@ for (var i=0; array.length>i;i++){
 		{
 		  if (array[i][z]<min){
 		    min = array[i][z]
-		    del=z
+		    del	=	z
 		  }
-		 if (z==array[i].length-1 && z!=0 ){
+		 if (z==array[i].length-1 ){
 		     k[kk].push(min)
 		    array[i].splice(del,1)
-	  	  min=+Infinity
-		     z=0
+	  	  	min= +Infinity
+		     z=-1
 		    }
-		  if (array[i].length==1 ){
-        k[kk].push(min)
+		  if (array[i].length==1 && min!=+Infinity){
+        	k[kk].push(min)
 		  }
 		 }
 		 k.push([])
 		 kk++
 		  
 		}
-	
-	 
+
+
 
 
 
 for (var i=0; i<k.length; i++){
 	str+=k[i].join(" ")+"\n"
 }
+console.log("по возрастанию "+"\n"+str)
 
-console.log(str)
+for (var i=0, str=""; i<k.length; i++){
+		if (i % 2==0){
+			k[i].reverse()
+
+		}
+	str+=k[i].join(" ")+"\n"
+}
+console.log("вывод строк по убыванию и возрастанию поочередно" +"\n" +str)
 console.log(array)
 
