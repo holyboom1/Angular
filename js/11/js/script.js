@@ -21,25 +21,41 @@ for(let i=0;i<n; i++){
 console.log(str + "\n")
 
 var str="";
-var k=1
-var max=+Infinity;
+var k=[[]]
+var min=+Infinity;
+var del=0;
+var kk=0;
 var swap=0;
-for (var i=0; i<array.length; i++){
-	for (var j=0; j<array.length; j++)
-		if (array[i][j]<max){
-			max=array[i][j];
+for (var i=0; array.length>i;i++){
+		for (var z=0; z<array.length; z++)
+		{
+		  if (array[i][z]<min){
+		    min = array[i][z]
+		    del=z
+		  }
+		 if (z==array[i].length-1 && z!=0 ){
+		     k[kk].push(min)
+		    array[i].splice(del,1)
+	  	  min=+Infinity
+		     z=0
+		    }
+		  if (array[i].length==1 ){
+        k[kk].push(min)
+		  }
+		 }
+		 k.push([])
+		 kk++
+		  
 		}
-		if (j==array.length-k){
-			array[i][k-1]=max;
-			max = 0;
-			k++;
-				}
+	
+	 
 
-}
 
-for (var i=0; i<array.length; i++){
-	str+=array[i].join(" ")+"\n"
+
+for (var i=0; i<k.length; i++){
+	str+=k[i].join(" ")+"\n"
 }
 
 console.log(str)
+console.log(array)
 
