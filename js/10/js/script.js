@@ -75,15 +75,32 @@ console.log("\n" + str);
 // сумма по диагонили
 
 console.log(array)
-for (var i=0 , str=0; i<array.length; i++) {
+for (var i=0 , str1="", str=0; i<array.length; i++) {
 	str+=array[i][i]
-}
-console.log("сумма по диагонили 1 =" + str)
+	str1+=array[i][i]
+	str1+="\n"
+	if(i>-1) {
+		for (var k = -1; k != i; k++) {
+			str1 += " "
+		}
+	}
 
-for (var i=0, str1=0; i<array.length; i++) {
-	str1+=array[i][array.length-1-i]
 }
-console.log("сумма по диагонили 2=" + str1)
+console.log("сумма по диагонили 1 =" + str + "\n" + str1)
+
+for (var i=0, str1=0, str=""; i<array.length; i++) {
+
+		for (var k = -1; k != array.length-i; k++) {
+			str += " "	}
+	str1+=array[i][array.length-1-i]
+
+	str+=array[i][array.length-1-i]
+	str+="\n"
+
+
+
+}
+console.log("сумма по диагонили 2=" + str1 + "\n" + str)
 
 // диагональ треугальником
 
@@ -95,7 +112,7 @@ for (var i=0 ,j=0, str=0, str1=""; i<array.length; i++ ) {
    }
    if(i>1 && i<array.length-1) {
      for (var k=0;k!=i-1;k++){
-       str1+="   "
+       str1+=" "
      }
    }
    if (i!=0 && i<array.length-1){
@@ -113,13 +130,29 @@ for (var i=0 ,j=0, str=0, str1=""; i<array.length; i++ ) {
 
 console.log("сумма по диагонили 3 =" + str+ "\n" + str1)
 
-for (var i=0, str1=0; i<array.length; i++) {
-
-	if (i!=array.length-1) {
-		str1+=array[i][j];
+for (var i=0 ,j=0, str=0, str1=""; i<array.length; i++ ) {
+	if (i<array.length-1){
+		str1+=array[i][0]
+		str+=array[i][0]
 
 	}
-	if (i!=0 && i!=array.length-1) str1+=array[array.length-1][i]
-	str1+=array[i][array.length-1-i]
+	if(i>1 && i<array.length-1) {
+		for (var k=1;k!=i;k++){
+			str1+=array[i][k]
+			str+=array[i][i]
+		}
+	}
+	if (i!=0 && i<array.length-1){
+		str1+=array[i][i]
+		str+=array[i][i]
+	}
+	if(i==array.length-1){
+		str1+=array[i].join("")
+		for (j=0;j<array[i].length;j++){
+			str+=array[i][j]
+		}
+	}
+	str1+="\n"
 }
-console.log("сумма по диагонили 4=" + str1)
+
+console.log ("сумма по диагонили 4 =" + str+ "\n" + str1 )
