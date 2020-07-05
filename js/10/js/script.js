@@ -88,20 +88,29 @@ console.log("сумма по диагонили 2=" + str1)
 // диагональ треугальником
 
 for (var i=0 ,j=0, str=0, str1=""; i<array.length; i++ ) {
+   if (i<array.length-1){
+   str1+=array[i][0]
+   str+=array[i][0]
+     
+   }
+   if(i>1 && i<array.length-1) {
+     for (var k=0;k!=i-1;k++){
+       str1+="   "
+     }
+   }
+   if (i!=0 && i<array.length-1){
+     str1+=array[i][i]
+     str+=array[i][i]
+   }
+   if(i==array.length-1){
+     str1+=array[i].join("")
+     for (j=0;j<array[i].length;j++){
+       str+=array[i][j]
+     }
+   }
 	str1+="\n"
-	if (i!=0) {
-		str+=array[i][j]
-		str1+=array[i][j]+" "
-	}
-	if (i!=0 && i!=array.length-1) {
-		str+=array[array.length-1][i]
-		str1+=array[array.length-1][i]+" "
-	}
-	str+=array[i][i]
-	str1+=array[i][i]+" "
-
-
 }
+
 console.log("сумма по диагонили 3 =" + str+ "\n" + str1)
 
 for (var i=0, str1=0; i<array.length; i++) {
