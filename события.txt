@@ -1,0 +1,2 @@
+test.onclick=elemClick клик мышю
+test.oncontextmenu=elemClick клик правой кнопкой мышю
