@@ -285,4 +285,19 @@ function имя(аргументы){
 тип события "обработчик" это функция
 
 второй топ
+test.oncontextmenu=elemClick
 
+метод .addEventListener(type,fn)
+
+обращение к элементу (ко всем  элементам ) это будет [] псевдо массив
+document.getElementsByTagName("p")
+
+
+document.getElementsByClassName("p")
+document.getElementById("p")
+
+оброботчик функции this он обращается к элементу кот отправил событие
+this работает по разному в зависимости от кода
+
+innerHtml выводит содержимое тега включая html
+innerText вывводит только содержимое

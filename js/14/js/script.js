@@ -132,14 +132,11 @@ window.onload = function (){
     }
 
     function maxseriesElems(){
-        var max=-Infinity;
-        var arraymax=[];
+        var ;
+        var ;
         for (let i=0; i<arr.length; i++){
-            if (arr[i-1]+arr[i]+arr[i+1]>max){
-                max=arr[i-1]+arr[i]+arr[i+1];
-                arraymax.length=0;
+            if (arr[i]<arr[i+1]){
 
-                arraymax=array.slice(i-1,i+2);
             }
 
         }
