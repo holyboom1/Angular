@@ -303,5 +303,5 @@ innerHtml выводит содержимое тега включая html
 innerText вывводит только содержимое
 
 .children ижет дочерные элементы в текущем узле
-
+..document.querySelectorAll("по цсс")
 
