@@ -5,10 +5,10 @@ body{
 #main_cont
 {
    position: relative;
-    top: 200px;
-    left: 25%;
-    width: 50%;
-    height: 500px;
+    top: 100px;
+    left: 20%;
+    width: 60%;
+    height: 700px;
     border-radius: 10px;
     z-index: 0;
 }
@@ -30,7 +30,7 @@ body{
 .images{
 
     width: 30%;
-    height: 140px;
+    height: 30%;
     margin: 10px;
 
 }

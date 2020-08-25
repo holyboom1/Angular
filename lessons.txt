@@ -303,5 +303,33 @@ innerHtml выводит содержимое тега включая html
 innerText вывводит только содержимое
 
 .children ижет дочерные элементы в текущем узле
-..document.querySelectorAll("по цсс")
+..document.querySelectorAll("по цсс")   возвращает псевдомассив с итогами поиска
+..document.querySelector("по цсс") возвращает первый элемент
+
+создание элементов html с помощью js
+var x=document.createElement(name) name=string
+data-*префикс для хранения данных
+
+
+методы добавления тега в html
+
+document.body.prepend(x) добавляет после открывающегося тега
+
+document.body.apppend(x)  перед закрывающимся
+
+добавление середину
+document.querySelector(".menu > li:first-child")
+li.insertAdjacentElement(where(str),what(obj))
+where - beforeBegin, afterBegin,beforeEnd,afterEnd.
+
+копия элемента со всем содержимым
+let copy=x.cloneNode(type(boolean));
+с содержимым true и без него false
+
+удаление обектов
+x.remove(); если нужно сохранить то можно в с помощью let y=x.remove();
+
+
+читая функция которыя принимает хотябы 1 оргумент , не меняет данные из глобальной области видимости ,
+возвращает результат , вычисления на базе входных данных.
 
