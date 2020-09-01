@@ -30,6 +30,18 @@ window.onload = function () {
             let td=ce("td",randomInteger(1,9),"click",sum);
             tr.append(td);
             document.getElementById("body").append(tr);
+
+            let trf= ce("tr");
+            let tdf=ce("td",td.innerText);
+            trf.append(tdf);
+            document.getElementById("tfoot").append(trf);
+
+            let rem= ce("tr");
+            rem.id= `removeLine`;
+            let remTD=ce("td",`X`, "click", removeTD);
+            rem.append(remTD);
+            document.getElementById("tfoot").append(rem);
+
             flag=false;
             x++
             y++
@@ -64,6 +76,9 @@ window.onload = function () {
             table.append(tbody);
             document.body.append(table);
 
+        let tfoot=ce("tfoot");
+        tfoot.id="tfoot";
+        table.append(tfoot);
             addButtons();
     }
 
@@ -74,6 +89,10 @@ window.onload = function () {
                     clone.children[i].innerHTML=randomInteger(1,9);
                     clone.children[i].addEventListener("click", sum)
                     clone.children[i].style.backgroundColor=``;
+
+                    let val= +clone.children[i].innerHTML;
+                    let sumTr= +document.querySelector(`#tfoot > tr > td:nth-child(${i+1})`).innerHTML
+                    document.querySelector(`#tfoot > tr > td:nth-child(${i+1})`).innerHTML= sumTr+val;
                 }
             document.getElementById("body").append(clone);
             x++
@@ -86,9 +105,16 @@ window.onload = function () {
             //let tr = document.getElementById("body").children;
             let tr = document.querySelectorAll("#body > tr");
             //let tr = body.getElementsByTagName("tr");
+            let  summ=0;
+
             for (let i=0;i<tr.length;i++){
                 tr[i].append(ce("td",randomInteger(1,9),"click",sum))
+                summ+= +tr[i].lastChild.innerHTML;
             }
+            let tdf= ce("td", summ);
+            document.querySelector(`#tfoot > tr`).append(tdf);
+
+            document.querySelector(`#removeLine`).append(ce("td",`X`, "click", removeTD));
             y++
         }
         diagonal()
@@ -138,5 +164,20 @@ window.onload = function () {
             arr.push(document.getElementById("body").children[i].children[i])
         }
     }
+
+    function removeTD() {
+        this.classList.add("remove")
+        let allTd = document.querySelectorAll("#removeLine > td");
+        for (var i = 0; i < allTd.length; i++) {
+            if (allTd[i].hasAttribute("class")) break;
+        }
+        // let remtf = document.querySelectorAll(`#tfoot > tr > td:nth-child(${i+1})`)
+        let rem = document.querySelectorAll(`tr > td:nth-child(${i + 1})`)
+        for (let i = 0; i < rem.length; i++) {
+            rem[i].remove()
+            // remtf[i].remove()
+        }
+    }
+
     init();
 }
