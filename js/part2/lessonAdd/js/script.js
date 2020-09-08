@@ -75,6 +75,12 @@ window.onload = function () {
             tbody.id="body";
             table.append(tbody);
             document.body.append(table);
+        let table1=ce("table");
+        let tbody1=ce("tbody");
+        table1.setAttribute("cellpadding", "5px")
+        tbody1.id="summaTD";
+        table1.append(tbody1);
+        document.body.append(table1);
 
         let tfoot=ce("tfoot");
         tfoot.id="tfoot";
@@ -96,6 +102,27 @@ window.onload = function () {
                 }
             document.getElementById("body").append(clone);
             x++
+
+            if (document.getElementById("summaTD").children.length==0){
+            let tr1= ce("tr");
+            let td1=ce("td", +  0);
+
+            tr1.append(td1);
+            document.getElementById("summaTD").append(tr1);
+            }
+
+            let TR=document.querySelectorAll("#body > tr ")
+            let SumTR=document.querySelectorAll("#summaTD > tr > td")
+            for (let i=0; i<TR.length; i++){
+                for(let k=0; k<SumTR.length; k++) {
+                    SumTR[k].innerHTML += +TR[i].children[k].innerHTML
+                    console.log( )
+                }
+
+            }
+
+
+
         }
         diagonal()
     }
