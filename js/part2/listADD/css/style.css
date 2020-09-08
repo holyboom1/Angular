@@ -11,12 +11,13 @@ div {
 }
 
 li .active {
-    border: 2px solid red;
+    border: 3px solid red;
 }
 li {
     width: max-content;
     border: 1px solid black;
     margin: 3px;
+    padding: 10px;
 }
 img{
     width: 15px;
