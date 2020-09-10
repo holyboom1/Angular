@@ -1,0 +1,11 @@
+div {
+    float: left;
+    width: 40%;
+    border: 2px solid black;
+    margin-right: 10px;
+
+}
+#add {
+    margin-left: 40%;
+    padding: 10px;
+}
