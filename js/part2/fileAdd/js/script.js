@@ -14,7 +14,7 @@ window.onload = function () {
         function addFile(e) {
             e.preventDefault();
             let delFile =  ce("img","","click",delFiles);
-            delFile.setAttribute("src","/img/close.png");
+            delFile.src="/img/close.png"
             let addElem = ce("input");
             addElem.type="file"
             addElem.name=`File#${countFiles}`;
