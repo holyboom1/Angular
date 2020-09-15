@@ -49,4 +49,5 @@
         document.getElementById("modalWindow").classList.toggle("show_modal_window");
 
     }
+
         init();
