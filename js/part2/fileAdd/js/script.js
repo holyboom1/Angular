@@ -18,10 +18,10 @@ window.onload = function () {
         delFile.addEventListener("click", delFiles)
         delFile.setAttribute("src","img/close.png");
         delFile.setAttribute("user-data",`File#${countFiles}`);
-
         let addElem = ce("input");
         addElem.type="file"
         addElem.name=`File#${countFiles}`;
+        addElem.addEventListener("change",changeAddFile);
         parent.append(delFile);
         parent.append(addElem);
         this.parentElement.append(parent);
@@ -32,12 +32,13 @@ window.onload = function () {
         delli.setAttribute("src","img/close.png");
         delli.setAttribute("user-data",`File#${countFiles}`);
         li.append(delli);
-        document.querySelector("ol").append(li);
+        document.querySelector("ul").append(li);
         countFiles++
 
     }
 
     function delFiles() {
+        if (showModal()){
        let numberOf = this.getAttribute("user-data").split(`File#`)[1]
        let li = document.querySelectorAll("li");
        let file= document.querySelectorAll(`div > input`)
@@ -53,6 +54,27 @@ window.onload = function () {
            }
        }
         this.parentElement.remove();
+    }}
+
+    function changeAddFile() {
+        let numberOfFile = this.getAttribute("name").split(`File#`)[1]
+        let size = (this.files[0].size) / 1024
+        let li = document.querySelectorAll("li");
+        for (let i = 0; i < li.length; i++) {
+            if (numberOfFile == li[i].getAttribute("user-data").split(`File#`)[1]) {
+                let delFile = ce("img");
+                delFile.addEventListener("click", delFiles)
+                delFile.setAttribute("src", "img/close.png");
+                delFile.setAttribute("user-data", `File#${numberOfFile}`);
+                li[i].innerText = `Имя "${this.files[0].name}" , Размер ${size.toFixed(2)} Kb`;
+                li[i].prepend(delFile);
+            }
+
+        }
+
+        console.log(this, numberOfFile, size)
+        console.log(this.files)
     }
+
 
 }

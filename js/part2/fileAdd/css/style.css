@@ -6,11 +6,15 @@
 
 }
 #two {
+    padding-top:  25px;
     float: left;
-    width: 40%;
+    width: 50%;
     border: 2px solid black;
     margin-right: 10px;
 
+}
+body{
+    background-color: darkslategray;
 }
 #add {
     margin-left: 40%;
@@ -19,4 +23,7 @@
 img {
     width: 20px;
 
+}
+ul {
+    list-style-type:none;
 }

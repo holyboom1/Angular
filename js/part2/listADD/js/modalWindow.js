@@ -34,8 +34,7 @@
     function closeWindow() {
         document.getElementById("modalWindow").classList.toggle("show_modal_window")
         let del= document.getElementsByClassName("active");
-        for(let i=0 ;i<del.length; i++){
-            del[i].classList.remove("active")
+        for(let i=0 ;i<del.wwwwwwwwwwwwwwwwwwwwwst.remove("active")
         }
     }
     function okFnModal() {
