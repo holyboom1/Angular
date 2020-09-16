@@ -1,22 +1,23 @@
 window.onload = function () {
-    document.querySelector(`form[name="reg"]`).addEventListener("submit",getFormInfo);
 
-    let re =[
-        ["username", /^[a-z]{2,10}$/],
-        ["city", /^[0-9]{5,10}$/]
+    let reg =[
+        ["firstname", /^[a-z-а-я]{2,10}$/gi],
+        ["lastname", /^[a-z-а-я]{2,20}$/gi],
+        ["email", /.by$|.бел$/gi],
+        ["url", /^http|^https/gi],
+        ["age", /^[1][8]$|^[1][9]$|^[2-9][0-9]$|^[1][0-1][0-9]$|^[1][2][0]$]/],
+        ["pass", /(([a-z])+([A-Z])+([0-9])+(([!])*([#])*([?])*([&]))+)/],
+        ["about", /^[a-z-а-я]{2,10}$/],
     ];
 
     let textElements = document.querySelectorAll(`form[name="reg"] input, form[name="reg"] textarea`);
-    textElements.forEach("input",blurFn)
+    textElements.forEach((item)=>item.addEventListener("input",changeValue))
 
-
-    function blurFn() {
-
-
+    function changeValue() {
         let re = getRegExp(this.name);
 
         if(!re.test(this.value)) {
-            showError(this,"Что-то не так");
+            showError(this,"обязательное поле!");
         }
         else {
             removeError(this);
@@ -25,7 +26,7 @@ window.onload = function () {
 
     function getRegExp(name) {
         let data = [];
-        re.forEach((item)=>{
+        reg.forEach((item)=>{
             if(name==item[0]) data.push(item[1]);
         })
 
@@ -41,15 +42,11 @@ window.onload = function () {
                 elemError.className="error-text";
                 elem.parentElement.append(elemError);
                 elem.className="form-error"
-
-                //элемент_формы.focus()
-                //элемент_формы.blur()
         }
-
         elem.focus();
 
     }
-    
+
     function removeError(elem) {
         elem.classList.remove("form-error");
         elem.nextElementSibling!=null ? elem.nextElementSibling.remove() : null;
