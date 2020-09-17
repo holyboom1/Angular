@@ -538,3 +538,42 @@ C file дожен быть enctupe="multipart/form-data" иначе не отп�
     re.test(str) проверяет соответствует ли рег выр строке , если да тру если нет фолс
 
     regexp101.com
+
+
+
+    дата и время
+    создание обьекта времени
+    let date=new Date(); в переменной находится врем яна момент запуска скрипта.
+    let date=new Date(x);можно указать namber & string ;
+    отсчет идет от  1 января 1970 г. UTC
+    это старт даты и времени в ОС linux
+    х это количество МС от данной даты и времени  если это число
+    если строка
+    "9/17/2020 14:33:15:135" "9-17-2020"
+
+    let date=new Date(y,m,d,h,m,s);
+
+    методы
+    date.getFullYear();
+    date.getMonth();
+    date.getDate();
+    date.getDay();
+    date.getHours();
+    date.getMinutes();
+    date.getSeconds();
+    date.getTime(); возвращает кол-во милисекунд с начала времени отсчета с 1970года
+
+    date.setFullYear(x);
+    date.setMonth(x);
+    date.setDate(x);
+    date.setDay(x);
+    date.setHours(x);
+    date.setMinutes(x);
+    date.setSeconds(x);
+    date.setTime(x);
+
+    date.toString();
+    date.toLocaleString(lang,obj)
+    date.now колво мс на тек момент
+
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date

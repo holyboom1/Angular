@@ -1,5 +1,6 @@
 window.onload = function () {
-
+    let eee=new Date()
+        console.log(eee.getTime())
     let reg =[
         ["firstname", /^[a-z-а-я]{2,10}$/gi],
         ["lastname", /^[a-z-а-я]{2,20}$/gi],
@@ -15,6 +16,9 @@ window.onload = function () {
 
     function changeValue() {
         let re = getRegExp(this.name);
+        let myid=this.getAttribute("id");
+        let mytd=document.(` td user-data="${myid}"`);
+        mytd.innerText=this.value;
 
         if(!re.test(this.value)) {
             showError(this,"обязательное поле!");
