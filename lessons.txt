@@ -577,3 +577,23 @@ C file дожен быть enctupe="multipart/form-data" иначе не отп�
     date.now колво мс на тек момент
 
 https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date
+
+
+cookies
+~~~~~~~~~~~~~~~~~~~~~
+это текстовый файл в кот хранится инфа . файл записывается на стороне клиента , в пределах браузера.
+для работы куки надо :
+1.http(s) (httpd)
+2 domain уки пишутся только на базе домена.
+
+document.cookie == "str"
+сохранить куку
+document.cookie ="key=ivan" key регистрозависимый
+document.cookie ="user_city=Minsk"
+пар ключей есть ограничение от 20 до 50 шт и 4кб
+document.cookie ="city=Minsk" \\ сессионный кук
+document.cookie ="city=Minsk; expires=Date"; \\ можно установить время жизни кука
+document.cookie ="city=Minsk; max-age=x" где Х колво сек от момента установки куки
+document.cookie ="city=Minsk;domain=*.onliner.by
+document.cookie ="city=Minsk;domain=*.onliner.by;path=/test/" только по пути path будет доступна кука.
+
