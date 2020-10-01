@@ -682,3 +682,54 @@ User.prototype.show=fn(){
 это хранилище всех методов для класса User}
 }
 
+
+классы !!
+чтобы создать класс надо
+class User{
+    constructor(name,age,zp){
+    \\используется для создания свойств обьекта (передоваемые значи и знач по умолчанию)
+    \\ конструктор вызывается автоматически
+    this.name=name;
+    this.age=age;
+    this.zp=zp;
+    }
+    getZp(){
+     return `${this.name}-${this.zp}`
+    }
+
+}
+
+статические методы Date.now();
+те что мы вызывали не создовая обьект
+
+class User{
+static date(){
+let x =new Date();
+return x.toLocaleString();
+}
+}
+
+сеттеры и геттреы в классах
+class User{
+set info(x){
+this.name=x}
+}
+get info(){
+return this.name}
+}
+}
+
+наследование
+class Dom{
+    constructor(app){
+
+    }
+ class User extends Dom{
+       constructor(name,age,zp,app){
+       super(app)
+       }
+     }
+
+     super это линк на род класс
+     let x =super.ce(elem,text)
+     return x;
