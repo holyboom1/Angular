@@ -733,3 +733,44 @@ class Dom{
      super это линк на род класс
      let x =super.ce(elem,text)
      return x;
+
+
+
+     асинхронные запросы !!
+     ajax
+     let xhr=new XMLHttpRequest();
+     xhr.open(method,url,async);
+              "GET" action  boolean
+               str  str        eсли true то асинхрронный
+                    or
+                    http://
+                    https://
+     xhr.send(body);
+              object to string "{age:22, city:awe}" только при post put
+     body не нужен если работаем на получение инфы
+
+     событие кот возникает если запрос наш прошел
+        xhr.onload=fn
+
+        onerror=fn если ошибка
+
+        onabort=fn если отменен
+
+        onprogress= возникает приполучении пакета
+
+        onloadend когда загрузка завершина не завис от резтов
+
+
+        xhr.onload=function(){xhr.statusCode}это ответы http
+                                xhr.statusText расширенная инфа
+        xhr.responce оответ кот получаем от нашего запроса
+        xhr.responcType="x"
+                           json
+                           text
+                           blob
+                           document
+        xhr.timeout = 3000000 времяотклика
+        JSON.parce(xhr.responce) преобразование в обьект
+        сирилизация преобразование обьекта к строке JSON.stringify({age:10})
+        json это обьект
+
