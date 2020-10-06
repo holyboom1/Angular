@@ -1,5 +1,4 @@
 window.onload = function () {
-	let selectvalue="bun"
 	function ce(name="div",text,event,fn){
 		let x = document.createElement(name);
 		if(text!=undefined){
@@ -23,71 +22,77 @@ window.onload = function () {
 		select.append(option2);
 		select.append(option3);
 		document.body.append(select);
+
 	}
 	init();
+	getvalue("bun");
+	var usd,eur,bun;
+	rendercours()
+
 	function getvalue(value){
-	console.log(value)
+
 		if (value=="$"){
-			gender(rendercours(145));
+			render(usd, value);
 		}
 		if (value=="eur"){
-			gender(rendercours(292))
+			render(eur, value)
 		}
 		if (value=="bun") {
-			gender(0)
+			render(1, value)
 		}
-		function gender(x) {
-			let items = new XMLHttpRequest();
-			items.open("GET", "/data/items.json", true);
-			items.send();
-			items.onload = function () {
-				let arr = JSON.parse(items.response)
-				arr.forEach(item => {
-					let main = document.createElement("div")
-					main.id = "app"
-					let div = document.createElement("div");
-					let title = document.createElement("p");
-					let preview = document.createElement("p");
-					let price = document.createElement("p");
-					title.innerHTML = item.title;
-					preview.innerHTML = item.preview;
 
-					price.innerHTML = `цена: ${item.price}*${x} ${selectvalue}`;
-					price.className = "price"
-					div.className = "item";
-					div.append(title);
-					div.append(preview);
-					div.append(price);
-					document.body.append(main);
-					document.querySelector("#app").append(div);
-
-				})
-			}
-		}
 	}
-	getvalue(selectvalue);
 	function changeSelect() {
-			console.log(this.value)
-			selectvalue=this.value
 			document.getElementById("app").remove()
-			getcours(this.value);
-			getvalue();
-
-			console.log(222)
+			getvalue(this.value);
 	}
 
-	function rendercours(valueID) {
-		let currency =  new XMLHttpRequest();
-		currency.open("GET",`https://www.nbrb.by/api/exrates/rates/${valueID}`, true);
-		currency.send();
-		currency.responseType="json";
-		currency.onload = function(){
-			console.log(currency.response)
-			console.log(currency.response.Cur_ID)
-			console.log(currency.response.Cur_Name)
-			console.log(currency.response.Cur_OfficialRate)
-			return currency.response.Cur_OfficialRate
-		}
+	function rendercours() {
 
+		let usd1 = new XMLHttpRequest();
+		usd1.open("GET", `https://www.nbrb.by/api/exrates/rates/145`, true);
+		usd1.send();
+		usd1.responseType = "json";
+		usd1.onload = function () {
+			usd = usd1.response.Cur_OfficialRate;
+			}
+		let eur1 = new XMLHttpRequest();
+		eur1.open("GET", `https://www.nbrb.by/api/exrates/rates/292`, true);
+		eur1.send();
+		eur1.responseType = "json";
+		eur1.onload = function () {
+			eur = eur1.response.Cur_OfficialRate;
+
+		}
+		bun = 1;
+	}
+	function render(x, value) {
+		let items = new XMLHttpRequest();
+		items.open("GET", "/data/items.json", true);
+		items.send();
+		items.onload = function () {
+			let arr = JSON.parse(items.response)
+			arr.forEach(item => {
+				let main = document.createElement("div")
+				main.id = "app"
+				let div = document.createElement("div");
+				let title = document.createElement("p");
+				let preview = document.createElement("p");
+				let price = document.createElement("p");
+				title.innerHTML = item.title;
+				preview.innerHTML = item.preview;
+				let priceCalc = (+item.price) / (+x);
+				console.log(priceCalc);
+				price.innerHTML = `цена: ${priceCalc}${value}`;
+				price.className = "price"
+				div.className = "item";
+				div.append(title);
+				div.append(preview);
+				div.append(price);
+				document.body.append(main);
+				document.querySelector("#app").append(div);
+
+			})
+		}
 	}
 }
