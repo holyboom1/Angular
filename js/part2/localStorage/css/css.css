@@ -1,12 +1,6 @@
-#container{
-    width: 55%;
+#main{
+    display: flex;
 }
-input{
-    margin: 15px;
-}
-div {
-    border: 2px solid black;
-}
-td{
+div{
     border: 2px solid black;
 }
