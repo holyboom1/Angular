@@ -774,3 +774,16 @@ class Dom{
         сирилизация преобразование обьекта к строке JSON.stringify({age:10})
         json это обьект
 
+
+        обещания --- promise
+        делает код ДЖС асинхронным
+        любое промис имеет состояния resolve или reject (проще говоря true or false)
+        let x =new Promose(callback);
+
+        let x = (n) =>new Promise((res,rej)=>{
+        if (x>=10) res(true)
+        rej("error")
+        });
+
+        положительный рез-т хранится в x(10).then(callback);
+        отрицательный x(0).catch(callback);
