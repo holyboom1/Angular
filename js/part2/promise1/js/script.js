@@ -14,32 +14,88 @@ window.onload = function () {
 
 			};
 		});
+		var firstDate="";
+		var acc=0;
 		wheatheGet()
 			.then(wheather=>{
 				wheather.list.forEach(item=> {
-					let date_txt = ce("div", `${item.dt_txt}`);
-					let temp_min = ce("div", `${item.main.temp_min}`);
-					let temp_feels = ce("div", `${item.main.feels_like}`);
-					let temp_max = ce("div", `${item.main.temp_max}`);
-					let temp = ce("div", `${item.main.temp}`);
-					let description = ce("div", `${item.weather.{0}.description}`);
-					let wheather_toTime = ce("div");
-					wheather_toTime.append(date_txt);
-					wheather_toTime.append(temp_min);
-					wheather_toTime.append(temp_feels);
-					wheather_toTime.append(temp_max);
-					wheather_toTime.append(temp);
-					wheather_toTime.append(description);
-					document.getElementById("main").append(wheather_toTime);
+					if (firstDate===""){
+						firstDate=item.dt_txt.split(" ")[0]
+						let dt=ce("dt", `дата : ${item.dt_txt}`, "click", showWheather);
+						let accord=ce("dd");
+						accord.id="acc0"
+						dt.append(accord)
+						document.getElementById("accordion").append(dt);
+					}
+
+					if (firstDate===item.dt_txt.split(" ")[0]){
+						let date_txt = ce("div", `дата : ${item.dt_txt}`);
+						let description = ce("div", `Ожидаемые осадки : ${item.weather[0].description}`);
+						let icon=ce("div", `<img src="http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png">`)
+						let temp_min = ce("div", `Минимальная температура :${item.main.temp_min} C\t°`);
+						let temp_feels = ce("div", `Ощущается как : ${item.main.feels_like} C\t°`);
+						let temp_max = ce("div", `Максимальная температура : ${item.main.temp_max} C\t°`);
+						let temp = ce("div", `Средняя Температура : ${item.main.temp} C\t°`);
+						let wheather_toTime = ce("div");
+						wheather_toTime.className="blockOfWheather"
+						wheather_toTime.append(date_txt);
+						wheather_toTime.append(icon);
+						wheather_toTime.append(description);
+						wheather_toTime.append(temp_min);
+						wheather_toTime.append(temp_feels);
+						wheather_toTime.append(temp_max);
+						wheather_toTime.append(temp);
+						document.getElementById(`acc${acc}`).append(wheather_toTime)
+					}
+					else {
+						firstDate=item.dt_txt.split(" ")[0];
+						acc++
+						let dt=ce("dt", `дата : ${item.dt_txt}` , "click", showWheather);
+						let accord=ce("dd");
+						accord.id=`acc${acc}`;
+						dt.append(accord)
+						document.getElementById("accordion").append(dt);
+
+						let date_txt = ce("div", `дата : ${item.dt_txt}`);
+						let description = ce("div", `Ожидаемые осадки : ${item.weather[0].description}`);
+						let icon=ce("div", `<img src="http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png">`)
+						let temp_min = ce("div", `Минимальная температура :${item.main.temp_min} C\t°`);
+						let temp_feels = ce("div", `Ощущается как : ${item.main.feels_like} C\t°`);
+						let temp_max = ce("div", `Максимальная температура : ${item.main.temp_max} C\t°`);
+						let temp = ce("div", `Средняя Температура : ${item.main.temp} C\t°`);
+						let wheather_toTime = ce("dd");
+						wheather_toTime.className="blockOfWheather"
+						wheather_toTime.append(date_txt);
+						wheather_toTime.append(icon);
+						wheather_toTime.append(description);
+						wheather_toTime.append(temp_min);
+						wheather_toTime.append(temp_feels);
+						wheather_toTime.append(temp_max);
+						wheather_toTime.append(temp);
+						document.getElementById(`acc${acc}`).append(wheather_toTime)
+					}
+
+
+
 				})
 			})
 			.catch(wheather=>console.log(wheather));
+
+
 		function init() {
 			let main=ce("div");
 			main.id="main";
+			let dl=ce("dl");
+			dl.id="accordion"
+			main.append(dl)
 			document.body.append(main);
+
 		}
 		init();
+
+		function showWheather() {
+			this.lastChild.classList.toggle("active");
+		}
 
 	function ce(name = "div", text, event, fn) {
 		let x = document.createElement(name);
