@@ -775,6 +775,8 @@ class Dom{
         json это обьект
 
 
+
+
         обещания --- promise
         делает код ДЖС асинхронным
         любое промис имеет состояния resolve или reject (проще говоря true or false)
@@ -787,3 +789,31 @@ class Dom{
 
         положительный рез-т хранится в x(10).then(callback);
         отрицательный x(0).catch(callback);
+
+home Wk
+async function
+generetor
+iterator
+
+
+
+fetch js глянуть
+jq easing plugin
+animate css
+page2page
+https://www.bestjquery.com/
+галерея изображений fencybox 3
+flexSlider 2
+jquery mask plugin !!!
+jqueryUI.com
+bxSlider
+datatables.net
+fotorama
+highlight jquery
+jQ
+
+jquery.com
+
+$(selector).method();
+
+
