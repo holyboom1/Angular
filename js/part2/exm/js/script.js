@@ -4,7 +4,7 @@ window.onload = function () {
         return Math.round(rand);
     }
 
-    var n = randomInteger(10,15);
+    var n = randomInteger(20,20);
     var array = [];
     for(let i=0;i<n; i++){
         array.push(randomInteger(1,9));
@@ -56,13 +56,17 @@ window.onload = function () {
     document.body.append(z)
 
     let x=prompt("введите слово","sweqwe")
-    arr=x.split("");
-    for (let i=0; i<arr.length;i++){
-        for (let k=0; k<i;k++){
-            document.body.innerHTML+="&nbsp; &nbsp;"
-        }
-        document.body.innerHTML+=arr[i]+"</br>"
-
+    if (x.length==0){
+        document.body.innerHTML+=`вы не ввели ничего !!!!`
     }
-    console.log(arr)
+    else {
+        arr = x.split("");
+        for (let i = 0; i < arr.length; i++) {
+            for (let k = 0; k < i; k++) {
+                document.body.innerHTML += "&nbsp; &nbsp;"
+            }
+            document.body.innerHTML += arr[i] + "</br>"
+
+        }
+    }
 }
