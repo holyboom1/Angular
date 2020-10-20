@@ -824,3 +824,4 @@ https://webpack.js.org/https://webpack.js.org/
 
 
 перебирающие методы массива map filter forEACH и тд
+п
