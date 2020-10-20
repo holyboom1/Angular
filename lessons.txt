@@ -790,6 +790,7 @@ class Dom{
         положительный рез-т хранится в x(10).then(callback);
         отрицательный x(0).catch(callback);
 
+        fetch("url").then().catch()
 home Wk
 async function
 generetor
@@ -817,3 +818,9 @@ jquery.com
 $(selector).method();
 
 hhh
+https://webpack.js.org/https://webpack.js.org/
+для работы вебпака нужен нодДЖС и НПМ
+
+
+
+перебирающие методы массива map filter forEACH и тд
