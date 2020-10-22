@@ -819,9 +819,9 @@ $(selector).method();
 
 hhh
 https://webpack.js.org/https://webpack.js.org/
+pug для формирования html
 для работы вебпака нужен нодДЖС и НПМ
 
-
+глянуть полифилд
 
 перебирающие методы массива map filter forEACH и тд
-п
