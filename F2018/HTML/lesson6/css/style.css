@@ -1,0 +1,9 @@
+p {
+  color: #29bfac;
+}
+
+.underline {
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: #501818;
+}

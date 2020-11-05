@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Главная",
+    "url" : "#home"
+  },
+  {
+    "name": "Каталог",
+    "url" : "#catalog"
+  },
+  {
+    "name": "О нас",
+    "url" : "#about"
+  },
+  {
+    "name": "Контакты",
+    "url" : "#contacts"
+  }
+]

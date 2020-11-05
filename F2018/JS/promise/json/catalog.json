@@ -1,0 +1,42 @@
+{"id":2,
+ "Date":"1564456998",
+ "Title":"Страница каталога",
+ "Desc" :"Описание старницы каталог",
+ "items" :[
+   {
+     "id":1,
+     "name" : "Товар 1",
+     "desc" : "test stets test",
+     "img"  : "/images/catalog/1/main.jpg",
+     "price" : 150
+   },
+   {
+     "id":2,
+     "name" : "Товар 2",
+     "desc" : "test stets test",
+     "img"  : "/images/catalog/1/main.jpg",
+     "price" : 150
+   },
+   {
+     "id":3,
+     "name" : "Товар 3",
+     "desc" : "test stets test",
+     "img"  : "/images/catalog/1/main.jpg",
+     "price" : 150
+   },
+   {
+     "id":4,
+     "name" : "Товар 4",
+     "desc" : "test stets test",
+     "img"  : "/images/catalog/1/main.jpg",
+     "price" : 150
+   },
+   {
+     "id":5,
+     "name" : "Товар 5",
+     "desc" : "test stets test",
+     "img"  : "/images/catalog/1/main.jpg",
+     "price" : 150
+   }
+ ]
+}

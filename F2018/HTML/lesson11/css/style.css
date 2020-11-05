@@ -1,0 +1,101 @@
+@import "normalize.css";
+@import "fonts.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+p[align="center"],h2[align="center"] {
+  color: red;
+}
+
+*[data-my="test"]{
+  background: #000;
+}
+
+img[title^="мир"] {
+  padding: 20px;
+  background: #000;
+  border: 2px solid red;
+}
+
+#tt div a[href^="mailto:"] span {
+  padding-left: 30px;
+  background: url('https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/mail.png') no-repeat top left;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.container {
+  width: 960px;
+  margin: 0px auto;
+}
+
+.header {
+  width: 100%;
+  float: left;
+  background: url(../images/bgHead.png) repeat-x;
+}
+
+.logo {
+  width: 220px;
+  min-height: 60px;
+  float: left;
+  margin:  15px 0px;
+}
+
+
+.mainMenu {
+  width: 540px;
+  min-height: 25px;
+  background-color: orange;
+  float: right;
+  margin: 35px 0 0 0;
+}
+
+.slider {
+  width: 100%;
+  float: left;
+  background: url('../images/bgSlider.png') repeat-x;
+}
+
+
+.circle {
+  width: 100%;
+  float: left;
+  background: url('../images/circle.jpg') no-repeat top center;
+}
+
+
+.sliderItems {
+  min-height: 430px;
+  margin: 20px 10px;
+}
+
+.sliderNav {
+  min-height: 20px;
+  width: 125px;
+  background-color: #fff;
+  margin: 0px auto;
+}
+
+.bannerText {
+  text-decoration: underline;
+  //font-family: 'super';
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: -10px;
+  text-shadow: 0px 15px 2px red , 0px -15px 2px green;
+
+}normalize css
+.
+https://necolas.github.io/normalize.css/
+
+.bannerButton {
+  line-height: 35px;
+  text-indent: -9999px;
+}
