@@ -1,14 +1,21 @@
 import React from "react";
-import {Container} from "reactstrap";
+import {Container, Row, Col} from "reactstrap";
 import Header from "Comp/header";
-import Sort from "Comp/sort";
-import List from "Comp/list";
-import data from "./../json/items";
+import MainContainer from "./MainContainer";
+import data from "./../json/items.json"
 
 export default function App() {
     return <Container>
-        <Header count={15} />
-        <Sort />
-        <List items={data} />
+        <Row>
+            <Col className={"text-center head"}>
+                MY Task's
+            </Col>
+        </Row>
+
+        <Header count={data.length}/>
+
+        <MainContainer data={data}/>
+
+
     </Container>
 }

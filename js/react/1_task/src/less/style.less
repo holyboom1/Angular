@@ -1,40 +1,65 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-//@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+body{
 
-@color : #fff;
-body {
-  background: @color;
+  background-image: linear-gradient(to top right, rgba(20, 0, 240, 0.69), rgba(16, 23, 194, 0.71), rgba(12, 47, 148, 0.72), rgba(8, 70, 102, 0.74), rgba(4, 94, 56, 0.75), rgba(0, 117, 10, 0.77), rgba(0, 98, 51, 0.76), rgba(0, 78, 92, 0.75), rgba(0, 59, 133, 0.74), rgba(0, 39, 173, 0.72), rgba(0, 20, 214, 0.71), rgba(0, 0, 255, 0.7));
 }
 
-.header {
-  background: #ccc;
-  padding: 20px;
+#app{
+  max-width: 1200px;
+  margin: 0px auto;
 }
-
-.item {
-  box-sizing: border-box;
-  padding: 20px;
-  border: 1px solid #ccc;
-  width: 200px;
-  height: 200px;
-  display: inline-block;
-  margin-right: 20px;
-}
-
-
-footer {
-  background: #ddd;
-}
-
-main {
-  background: bisque;
-
-  .slider {
-    background: aquamarine;
-    min-height: 500px;
-    margin-bottom: 20px;
-    img {
-      width: 100%;
-    }
+@media (max-width: 1200px){
+  #app{
+    max-width: 970px;
   }
 }
+@media (max-width: 992px){
+  #app{
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px){
+  #app{
+    max-width: none;
+  }
+}
+.container{
+  margin-top: 15px;
+}
+.head {
+  padding: 10px;
+}
+div.row {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  background-color: rgba(204,204,204,0.5);
+  font-weight: bold;
+
+}
+div.col{
+  border-right: 1px solid red ;
+  border-left: 0px solid black;
+  border-top: 0px solid black;
+  border-bottom: 0px solid black;
+  border-radius: 15px;
+}
+
+div.TaskDone {
+  position: relative }
+span.TaskDone {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) }
+
+div .row .h-150{
+  margin: auto 0px;
+  border: none;
+  background: none;
+}
+

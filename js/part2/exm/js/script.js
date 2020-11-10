@@ -4,10 +4,10 @@ window.onload = function () {
         return Math.round(rand);
     }
 
-    var n = randomInteger(20,20);
+    var n = randomInteger(20,26);
     var array = [];
     for(let i=0;i<n; i++){
-        array.push(randomInteger(1,9));
+        array.push(randomInteger(1,99));
 
     }
     let temp="";
@@ -21,12 +21,11 @@ window.onload = function () {
        if (array[i+1]>array[i]){
 
            if(flag){
-               temp+=array[i];
+               temp+=array[i]+ " ";
                flag=false
            }
-           temp+=array[i+1];
+           temp+=array[i+1] + " ";
            k++
-           console.log (temp);
         }
 
        else if (k>k1){
@@ -48,8 +47,6 @@ window.onload = function () {
     let y=document.createElement("div");
     y.innerHTML=`наш массив ${array} \n максимальная последовательность(первая найденная!!!) ${temp1}`;
     document.body.append(y)
-
-    console.log (array, temp, temp1)
 
     let z=document.createElement("div");
     z.innerHTML=`задание 2`;

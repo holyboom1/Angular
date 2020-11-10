@@ -87,10 +87,6 @@ const config= {
             filename: "index.html",
             template: './src/pug/pages/index.pug'
         }),
-        new HtmlWebpackPlugin({
-            filename: "catalog.html",
-            template: './src/pug/pages/catalog.pug'
-        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'

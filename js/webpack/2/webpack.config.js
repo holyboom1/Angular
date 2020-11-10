@@ -8,9 +8,7 @@ const env = process.env.NODE_ENV!=undefined ? process.env.NODE_ENV : "production
 console.log(process.env.NODE_ENV)
 console.log(process.env.GLOBAL_VAR)
 
-for(let i = 0; i <env.length; i++){
-    console.log(env[i]);
-}
+
 const config= {
     entry: "./src/app.js",
     output: {
@@ -26,7 +24,8 @@ const config= {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ["@babel/preset-env",'@babel/preset-react'],
+                        //plugins: ["@babel/transform-runtime", "transform-class-properties", "@babel/plugin-syntax-dynamic-import"]
                     },
                     // loader: 'file-loader',
                     // options: {
