@@ -20,9 +20,7 @@ export default function Item(props) {
         dateChange  = `Изменено : ${dateUpdate.getDate()}.${dateUpdate.getMonth()+1}.${dateUpdate.getFullYear()} ${dateUpdate.getHours()}:${dateUpdate.getMinutes()}`
 
          }
-    function click() {
-        console.log(1111)
-    }
+
     return <Row>
         <Col className={"align-self-center"}>
              {i+1}. {item.title}

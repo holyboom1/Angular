@@ -5,18 +5,36 @@ import MainContainer from "./MainContainer";
 import data from "./../json/items.json"
 import Sort from "./Sort";
 
-export default function App() {
-    return <Container>
-        <Row>
-            <Col className={"text-center head"}>
-                MY Task's
-            </Col>
-        </Row>
+export default class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state={
+            todos:null
+        }
+    }
 
-        <Header count={data.length}/>
-        <Sort/>
-        <MainContainer data={data}/>
+    render() {
+        console.log(this.state.todos)
+        return(
+        <Container>
+            <Row>
+                <Col className={"text-center head"}>
+                    MY Task's
+                </Col>
+            </Row>
+            <Header count={data.length}/>
+            <Sort/>
+            <MainContainer data={data}/>
+        </Container>
 
+        )}
 
-    </Container>
+    componentDidMount() {
+       fetch("https://jsonplaceholder.typicode.com/todos")
+           .then(data=>data.json())
+           .then(todos=>this.setState({
+               todos:todos
+           }))
+           .catch(error=>console.log(error))
+    }
 }
