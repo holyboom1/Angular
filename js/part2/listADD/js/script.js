@@ -53,52 +53,27 @@ window.onload = function() {
         }
         if(e.which===13){okFnModal()}
         if(e.which===8){closeWindow()}
-        if (e.ctrlKey){
-
-        }
-
-
-
-        // function addElem() {
-        //     let elem = document.createElement("p");
-        //     elem.innerHTML="asdasda222222222";
-        //     document.body.append(elem);
-        //
-        //
-        // document.body.onclick = function (e) {
-        //     if(e.target.tagName=="P") {
-        //         runSomeFn(222,asda,23123,)
-        //     }
-        // }
-        //
-        // let z = document.querySelectorAll("p");
-        // document.querySelectorAll("p").forEach((item,i)=>{
-        //     item.addEventListener("click",()=>{
-        //         console.log(22222);
-        //     })
-        // })
+        if (e.ctrlKey){}
     }
     function addLi() {
         let li=ce('li',`${randomInteger(1000,9999)}`);
+        li.addEventListener("click", showModal)
         let del=ce("img")
         del.setAttribute('src', "img/close.png");
-        del.addEventListener("click", showModal);
+        del.addEventListener("click", delLi);
         li.append(del);
         document.getElementById("ul").append(li);
 
 
     }
+
     function showModal() {
         document.getElementById("modalWindow").classList.toggle("show_modal_window")
-        this.parentElement.className="active"
+        this.className="active"
         let del= document.getElementsByClassName("active");
         let innerText=""
         for(let i=0; i<del.length;i++){
-            innerText+=del[i].innerText
-            if(i>0){
-                innerText+=","
-            }
-
+            innerText+=del[i].innerText+ ","
         }
         document.getElementById("modalInText").innerText=innerText;
 
@@ -106,39 +81,13 @@ window.onload = function() {
 
     }
     function delLi() {
-
         this.parentElement.remove()
     }
     function sortUp() {
-        let li = document.getElementsByTagName('li');
-        let arr=[];
-        for(let i=0; i<li.length;i++){
-            arr[i]=li[i].innerText
-        }
-        arr.sort()
-        for(let i=0; i<li.length;i++){
-            li[i].innerText=arr[i]
-            let del=ce("img") //это мои кнопки удалеия строки
-            del.setAttribute('src', "img/close.png");
-            del.addEventListener("click", delLi);
-            li[i].append(del)
-        }
+        console.log(222)
     }
     function sortDown() {
-        let li = document.getElementsByTagName('li');
-        let arr=[];
-        for(let i=0; i<li.length;i++){
-            arr[i]=li[i].innerText
-        }
-        arr.sort()
-        arr.reverse()
-        for(let i=0; i<li.length;i++){
-            li[i].innerText=arr[i]
-            let del=ce("img") //это мои кнопки удалеия строки
-            del.setAttribute('src', "img/close.png");
-            del.addEventListener("click", delLi);
-            li[i].append(del)
-        }
+        console.log(333)
     }
     init();
 

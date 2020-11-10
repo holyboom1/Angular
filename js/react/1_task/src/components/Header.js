@@ -4,15 +4,14 @@ import { Row, Col , Button , ButtonGroup } from "reactstrap";
 export default function Header(props) {
     let {count}=props;
     return <Row>
-        <Col className={"text-center"} xs={"3"}>
+        <Col className={"text-center align-self-center"} xs={"3"}>
             MY Task's
         </Col>
-        <Col className={"text-center "} xs={"7"}>
-            Count of task - {count!=undefined ? count : 0}
+        <Col className={"text-center align-self-center"} xs={"6"}>
+            Count of task - {count!==undefined ? count : 0}
         </Col>
-
-        <Col xs={"2"}>
-            <Button color={"success"}>Add</Button>
+        <Col xs={"3"} className={"align-self-center p-1"}>
+            <Button color={"success"} className={"btn-sm"}>Add</Button>
         </Col>
     </Row>
 }

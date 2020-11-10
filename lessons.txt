@@ -840,4 +840,20 @@ react !!!
 props данные кот передаются от одного компонента к другому от родителея к дочке
 ru.reactjs.org
 
-ad
+жизненный цикл
+1 Constructor {для создания внутр полей , пропсов , и тп}
+static getDirevedStateFromProps(){}
+2 render ()
+3 ComponentDidMount (){вызывается один раз}
+this.state хранилищи
+this.state={
+items:null
+}
+
+для изменения state используют this.setState()
+
+1 state меняется только через вызов this.setState() передается обьект
+2 при изменении состояния всегда происходти рендер
+
+
+

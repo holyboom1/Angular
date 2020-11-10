@@ -6,7 +6,6 @@ export default function Item(props) {
     let {item}=props;
     let {i}=props;
     let dateCreate=new Date;
-    // console.log(item.created_at)
         dateCreate.setTime(item.created_at)
     let dateChange;
     if (item.status){
@@ -25,23 +24,32 @@ export default function Item(props) {
         console.log(1111)
     }
     return <Row>
-        <Col>
+        <Col className={"align-self-center"}>
              {i+1}. {item.title}
         </Col>
-        <Col sm={"5"}>
-            <Col >
+        <Col sm={"5"} className={"align-self-center"}>
+            <Col className={"m-1"}>
                 Создано : {dateCreate.getDate()}.{dateCreate.getMonth()+1}.{dateCreate.getFullYear()} {dateCreate.getHours()}:{dateCreate.getMinutes()}
             </Col>
-            <Col>
+            <Col className={"m-1"}>
                 {dateChange}
             </Col>
         </Col>
-        <Col sm={"1"} className={"TaskDone"} >
-            {item.status ? <Badge color="success" className={"TaskDone"} >Done</Badge> : <Badge color="danger" className={"TaskDone"}>UnDone</Badge>}
-        </Col>
-        <Col sm={"2"} className={"row align-items-center h-150"}>
-            <Button color="danger" className={""} ><GoTrashcan/></Button>{}
-            <Button color="success"><GoPencil/></Button>{' '}
+        <Col sm={"4"} className={"align-self-center pt-2"}>
+            <Row className={"align-items-center justify-content-center p-1 flex-nowrap"} >
+                <ButtonGroup className={"m-1"}>
+                <Col className={"border-0 align-self-center  p-1"} >
+                     {item.status ? <Badge color="success"  >Done</Badge> : <Badge color="danger" >UnDone</Badge>}
+                </Col>
+                <Col className={"border-0  p-1"} >
+                    <Button color="danger" className={"btn-sm"} ><GoTrashcan/></Button>{}
+                </Col>
+                <Col className={"border-0  p-1"}>
+                    <Button color="success" className={"btn-sm"}><GoPencil/></Button>{' '}
+                </Col>
+                </ButtonGroup>
+                </Row>
+
         </Col>
     </Row>
 }
