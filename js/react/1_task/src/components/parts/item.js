@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col , Badge ,Button, ButtonGroup } from "reactstrap";
-import { GoTrashcan , GoPencil} from "react-icons/go";
+import { GoTrashcan , GoPencil, GoInfo} from "react-icons/go";
 
 export default function Item(props) {
     let {item}=props;
@@ -8,7 +8,7 @@ export default function Item(props) {
     let dateCreate=new Date;
         dateCreate.setTime(item.created_at)
     let dateChange;
-    if (item.status){
+    if (item.completed){
         let dateDone=new Date;
         dateDone.setTime(item.done_at)
         dateChange= ` Выполнено : ${dateDone.getDate()}.${dateDone.getMonth()+1}.${dateDone.getFullYear()} ${dateDone.getHours()}:${dateDone.getMinutes()}`
@@ -33,20 +33,21 @@ export default function Item(props) {
                 {dateChange}
             </Col>
         </Col>
-        <Col sm={"4"} className={"align-self-center pt-2"}>
-            <Row className={"align-items-center justify-content-center p-1 flex-nowrap"} >
-                <ButtonGroup className={"m-1"}>
-                <Col className={"border-0 align-self-center  p-1"} >
-                     {item.status ? <Badge color="success"  >Done</Badge> : <Badge color="danger" >UnDone</Badge>}
+        <Col sm={"4"} className={"align-self-center   pt-2"}>
+            <Row className={"align-items-center justify-content-space-around p-1 flex-nowrap"} >
+
+                <Col sm={"4"} className={"border-0 align-self-center p-1  "} >
+                     {item.completed ? <Badge color="success"  className={"align-self-center"} >Done</Badge> : <Badge color="danger" >UnDone</Badge>}
                 </Col>
-                <Col className={"border-0  p-1"} >
-                    <Button color="danger" className={"btn-sm"} ><GoTrashcan/></Button>{}
+
+                <Col  sm={"5"}className={"border-0  p-1 "} >
+                    <ButtonGroup className={"m-1"}>
+                        <Button color="danger" className={"btn-sm"} ><GoTrashcan/></Button>{}
+                        <Button color="success" className={"btn-sm"}><GoPencil/></Button>{' '}
+                        <Button color="info" className={"btn-sm"}><GoInfo/></Button>{' '}
+                    </ButtonGroup>
                 </Col>
-                <Col className={"border-0  p-1"}>
-                    <Button color="success" className={"btn-sm"}><GoPencil/></Button>{' '}
-                </Col>
-                </ButtonGroup>
-                </Row>
+            </Row>
 
         </Col>
     </Row>
