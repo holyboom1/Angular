@@ -11,7 +11,9 @@ export default function Header(props) {
             Count of task - {count!==undefined ? count : 0}
         </Col>
         <Col xs={"3"} className={"align-self-center p-1"}>
-            <Button color={"success"} className={"btn-sm"}>Add</Button>
+
+                <Button color={"success"} className={"btn-sm"} onClick={()=>props.messageModal("new",null,props.modalOk,"new")}>Add</Button>
+
         </Col>
     </Row>
 }

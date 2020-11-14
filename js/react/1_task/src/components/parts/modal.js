@@ -1,31 +1,61 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, FormGroup, Form, Label} from 'reactstrap';
 
-const ModalExample = (props) => {
-    const {
-        buttonLabel,
-        className
-    } = props;
+export default function ModalShow(props) {
+console.log(props)
+        if (!props.inputModal) {
+            return <Modal isOpen={props.modal} toggle={props.modalToggle}>
+                        <ModalBody className={"align-self-center m-2"}>
+                             {props.modalText}
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="success" onClick={() => props.modalOk()}>Ok</Button>
+                            <Button color="secondary" onClick={props.modalToggle}>Cancel</Button>
+                        </ModalFooter>
+                    </Modal>
+        }
+        if (props.inputModal==="edit") {
 
-    const [modal, setModal] = useState(false);
+        return <Modal isOpen={props.modal} toggle={props.modalToggle}>
+            <ModalBody >
+                <Form id="CreateForm">
+                {/*<FormGroup>*/}
+                {/*    <Label for="NameText">Название</Label>*/}
+                {/*    <Input type="text" name="name" id="NameText" placeholder="Название" />*/}
+                {/*</FormGroup>*/}
+                <FormGroup>
+                    <Label for="FormText">Содержание</Label>
+                    <Input type="textarea" name="text" id="FormText" defaultValue={props.modalText} rows={5}/>
+                </FormGroup>
+                </Form>
+            </ModalBody>
+            <ModalFooter>
+                <Button color="success" onClick={() =>  props.modalOk()}>Ok</Button>
+                <Button color="secondary" onClick={props.modalToggle}>Cancel</Button>
+            </ModalFooter>
+        </Modal>
+    }
 
-    const toggle = () => setModal(!modal);
+    if (props.inputModal==="new") {
 
-    return (
-        <div>
-            <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
-            <Modal isOpen={modal} toggle={toggle} className={className}>
-                <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-                <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
-                </ModalFooter>
-            </Modal>
-        </div>
-    );
+        return <Modal isOpen={props.modal} toggle={props.modalToggle}>
+            <ModalBody >
+                <Form id="CreateForm">
+                    <FormGroup>
+                        <Label for="NameText">Название</Label>
+                        <Input type="text" name="name" id="NameText" placeholder="Название" />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="FormText">Содержание</Label>
+                        <Input type="textarea" name="text" id="FormText" rows={5}/>
+                    </FormGroup>
+                </Form>
+            </ModalBody>
+            <ModalFooter>
+                <Button color="success" onClick={() =>  props.modalOk()}>Ok</Button>
+                <Button color="secondary" onClick={props.modalToggle}>Cancel</Button>
+            </ModalFooter>
+        </Modal>
+    }
 }
 
-export default ModalExample;
