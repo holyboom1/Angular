@@ -1,9 +1,10 @@
-import React from "react";
+import React , {useState}from "react";
 import {
     Container,
     Row,
     Col,
     Spinner,
+    Button
 
 } from "reactstrap";
 import Header from "Comp/header";
@@ -21,6 +22,7 @@ export default class App extends React.Component {
             todos: null,
             users: null,
             modal:false,
+            modalName:"",
             modalText : "",
             modalOk : null,
             toast: false,
@@ -71,12 +73,14 @@ export default class App extends React.Component {
                 {this.state.modal ? <ModalShow modal={this.state.modal}
                                                modalToggle={this.modalToggle}
                                                modalText={this.state.modalText}
+                                               modalName={this.state.modalName}
                                                modalOk={this.state.modalOk}
                                                inputModal={this.state.modalInput}
                                                 /> : null  }
 
                 {this.state.toast ? <ToastShow toastText={this.state.toastText}
                                                toastHead={this.state.toastHead}  /> : null}
+
 
 
 
@@ -123,25 +127,33 @@ export default class App extends React.Component {
 
     }
 
-        messageModal(id,text,fn,inputModal){
+        messageModal(id,name,fn,inputModal, text){
             if (inputModal==="edit"){
+                console.log("edit")
                 this.setState({
-                    modal:true,
+
                     modalInput:inputModal,
-                    modalOk: ()=>fn(id),
+                    modalName: name,
                     modalText: text,
+                    modalOk: ()=>fn(id),
+                    modal:true,
+
                 })
             }
             if ( inputModal ==="new"){
+                console.log("NEw")
+
                 this.setState({
                     modal: true,
                     modalInput: inputModal,
                     modalOk: () => fn(),
                 })
             }
-            else {this.setState({
+            if (inputModal ==="change"){
+                console.log("esle")
+                this.setState({
                 modal:true,
-                modalText: text,
+                modalText: name,
                 modalOk: ()=>fn(id)
             })}
 
@@ -165,7 +177,8 @@ export default class App extends React.Component {
             this.postData({
 
                 "id": `${length+1}`,
-                "title": `${document.getElementById("FormText").value}`,
+                "title": `${document.getElementById("NameText").value}`,
+                "body" : `${document.getElementById("FormText").value}`,
                 "completed": false,
                 "created_at": `${date}`,
                 "updated_at": `${date}`,
@@ -229,13 +242,16 @@ export default class App extends React.Component {
         }
 
         EditPost(id){
-            console.log(document.getElementById("FormText").value)
+
              this.setState({
                  todos: [... this.state.todos.filter((item)=>{
                      if (item.id===id) {
-                         item.title = document.getElementById("FormText").value ;
+                         item.body = document.getElementById("FormText").value ;
+                         item.title = document.getElementById("NameText").value ;
                          this.DoneDate(item)
-                         this.putData(item._id,{title :item.title,
+                         this.putData(item._id,{
+                             body :item.body,
+                             title :item.title,
                              done_at:item.done_at,
                              updated_at:item.updated_at})
                      }
@@ -286,6 +302,10 @@ export default class App extends React.Component {
                         }
                     }
                 )],
+            })
+            this.setState({
+                modal:false,
+                modalInput:false
             })
 
     }

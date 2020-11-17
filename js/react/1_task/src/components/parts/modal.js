@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, FormGroup, Form, Label} from 'reactstrap';
 
 export default function ModalShow(props) {
-console.log(props)
-        if (!props.inputModal) {
+        if (props.inputModal===false) {
             return <Modal isOpen={props.modal} toggle={props.modalToggle}>
                         <ModalBody className={"align-self-center m-2"}>
                              {props.modalText}
@@ -17,12 +16,13 @@ console.log(props)
         if (props.inputModal==="edit") {
 
         return <Modal isOpen={props.modal} toggle={props.modalToggle}>
+            {console.log(props)}
             <ModalBody >
                 <Form id="CreateForm">
-                {/*<FormGroup>*/}
-                {/*    <Label for="NameText">Название</Label>*/}
-                {/*    <Input type="text" name="name" id="NameText" placeholder="Название" />*/}
-                {/*</FormGroup>*/}
+                <FormGroup>
+                    <Label for="NameText">Название</Label>
+                    <Input type="text" name="name" id="NameText" placeholder="Название"  defaultValue={props.modalName}  />
+                </FormGroup>
                 <FormGroup>
                     <Label for="FormText">Содержание</Label>
                     <Input type="textarea" name="text" id="FormText" defaultValue={props.modalText} rows={5}/>

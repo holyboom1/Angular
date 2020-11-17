@@ -5,7 +5,6 @@ import { GoTrashcan , GoPencil, GoInfo} from "react-icons/go";
 
 export default function Item(props) {
     let {item}=props;
-    let {i}=props;
     let dateCreate=new Date;
         dateCreate.setTime(item.created_at)
     let dateChange;
@@ -22,21 +21,25 @@ export default function Item(props) {
 
          }
     return <Row>
-        <Col  className={"align-self-center"}>
+        <Col  sm={"3"} className={"align-self-center border-my"}>
               {item.title}
+        </Col>
+
+        <Col  sm={"5"} className={"align-self-center border-my"}>
+            {item.body!=undefined ? item.body : null}
         </Col>
 
         <Col sm={"4"} className={"align-self-center   pt-2"}>
             <Row className={"align-items-center justify-content-space-around p-1 flex-nowrap"} >
 
                 <Col sm={"4"} className={"border-0 align-self-center p-1  "}  >
-                     {item.completed ? <Badge color="success"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone)}>Done</Badge> :<Badge color="danger"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone)}>UnDone</Badge>}
+                     {item.completed ? <Badge color="success"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone, "change", "")}>Done</Badge> :<Badge color="danger"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone)}>UnDone</Badge>}
                 </Col>
 
                 <Col  sm={"5"}className={"border-0  p-1 "} >
                     <ButtonGroup className={"m-1"}>
-                        <Button color="danger" className={"btn-sm"} onClick={()=>props.messageModal(item.id,"Удалить?",props.remove)} ><GoTrashcan/></Button>
-                        <Button color="success" className={"btn-sm"} onClick={()=>props.messageModal(item.id,item.title,props.EditPost,"edit")}><GoPencil/></Button>
+                        <Button color="danger" className={"btn-sm"} onClick={()=>props.messageModal(item.id,"Удалить?",props.remove, "change", "")} ><GoTrashcan/></Button>
+                        <Button color="success" className={"btn-sm"} onClick={()=>props.messageModal(item.id,item.title,props.EditPost,"edit",item.body)}><GoPencil/></Button>
                         <Button color="info" id={`UncontrolledPopover${item.id}`} type="button" className={"btn-sm"}><GoInfo/></Button>
                         <UncontrolledPopover placement="bottom" target={`UncontrolledPopover${item.id}`}>
                             <PopoverHeader>Даты создания/Изменения</PopoverHeader>
