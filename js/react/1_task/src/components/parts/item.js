@@ -26,14 +26,14 @@ export default function Item(props) {
         </Col>
 
         <Col  sm={"5"} className={"align-self-center border-my"}>
-            {item.body!=undefined ? item.body : null}
+            {item.body!=undefined ? item.body : "...."}
         </Col>
 
         <Col sm={"4"} className={"align-self-center   pt-2"}>
             <Row className={"align-items-center justify-content-space-around p-1 flex-nowrap"} >
 
                 <Col sm={"4"} className={"border-0 align-self-center p-1  "}  >
-                     {item.completed ? <Badge color="success"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone, "change", "")}>Done</Badge> :<Badge color="danger"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone)}>UnDone</Badge>}
+                     {item.completed ? <Badge color="success"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone, "change", "")}>Done</Badge> :<Badge color="danger"  onClick={()=>props.messageModal(item.id,"Изменить статус?",props.ChangeDone, "change", "")}>UnDone</Badge>}
                 </Col>
 
                 <Col  sm={"5"}className={"border-0  p-1 "} >

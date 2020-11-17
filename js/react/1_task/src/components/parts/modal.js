@@ -16,7 +16,7 @@ export default function ModalShow(props) {
         if (props.inputModal==="edit") {
 
         return <Modal isOpen={props.modal} toggle={props.modalToggle}>
-            {console.log(props)}
+
             <ModalBody >
                 <Form id="CreateForm">
                 <FormGroup>

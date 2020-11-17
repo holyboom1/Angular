@@ -4,7 +4,7 @@ import {
     Row,
     Col,
     Spinner,
-    Button
+    Button,
 
 } from "reactstrap";
 import Header from "Comp/header";
@@ -12,6 +12,8 @@ import MainContainer from "./MainContainer";
 import Sort from "./Sort";
 import ModalShow from "./parts/modal";
 import ToastShow from "./parts/Toast";
+import DatePick from "./parts/datePicker";
+
 
 
 
@@ -84,12 +86,11 @@ export default class App extends React.Component {
 
 
 
+
             </Container>
 
         )
     }
-
-
 
         SortDone() {
             let arr = [].concat(this.state.todos)
@@ -105,7 +106,6 @@ export default class App extends React.Component {
                 todos: arr.sort((a, b) => (a.completed) - (b.completed))
             })
     }
-
         ToastShowFn(textHead,textBody){
         this.setState({
             toastText:textBody,
@@ -114,7 +114,6 @@ export default class App extends React.Component {
         })
         setTimeout(()=>{this.setState({toast:false})}, 3000)
     }
-
         componentDidMount() {
       this.getTodos();
       this.getUsers();
@@ -126,10 +125,9 @@ export default class App extends React.Component {
       //   this.deleteData("5fae7500a7c46d740000bf60")
 
     }
-
         messageModal(id,name,fn,inputModal, text){
             if (inputModal==="edit"){
-                console.log("edit")
+
                 this.setState({
 
                     modalInput:inputModal,
@@ -141,7 +139,7 @@ export default class App extends React.Component {
                 })
             }
             if ( inputModal ==="new"){
-                console.log("NEw")
+
 
                 this.setState({
                     modal: true,
@@ -150,7 +148,7 @@ export default class App extends React.Component {
                 })
             }
             if (inputModal ==="change"){
-                console.log("esle")
+
                 this.setState({
                 modal:true,
                 modalText: name,
@@ -158,7 +156,6 @@ export default class App extends React.Component {
             })}
 
         }
-
         CreateForm(){
             let date = new Date().getTime();
             let length = this.state.todos.sort((a, b) => parseFloat(a.id) - parseFloat(b.id))[this.state.todos.length-1].id;
@@ -189,16 +186,14 @@ export default class App extends React.Component {
                 modal:false,
                 modalInput:false
             })
-            this.getTodos()
-        }
 
+        }
         modalToggle(){
             this.setState({
                 modal : !this.state.modal,
                 modalInput:false
             })
         }
-
         getTodos(){
             // fetch('https://testitschool-c0b7.restdb.io/rest/todos',{
             //     "headers": {
@@ -226,7 +221,6 @@ export default class App extends React.Component {
                      todos:todos
                     }));
         }
-
         getUsers(){
             fetch('https://testitschool-c0b7.restdb.io/rest/userstodos',{
                 "headers": {
@@ -240,7 +234,6 @@ export default class App extends React.Component {
                 }))
                 .catch(error => console.log(error))
         }
-
         EditPost(id){
 
              this.setState({
@@ -263,13 +256,11 @@ export default class App extends React.Component {
                  modalInput:false
              })
          }
-
         random(min, max) {
             // получить случайное число от (min-0.5) до (max+0.5)
             let rand = min - 0.5 + Math.random() * (max - min + 1);
             return Math.round(rand);
         }
-
         randomDate(arr) {
 
             arr=[].concat(arr);
@@ -289,7 +280,6 @@ export default class App extends React.Component {
                 return item;
             })
         }
-
         removeItem(id) {
 
             this.setState({
@@ -309,7 +299,6 @@ export default class App extends React.Component {
             })
 
     }
-
         ChangeDone(id) {
             this.setState({
                 todos: [... this.state.todos.filter((item)=>{
@@ -327,7 +316,6 @@ export default class App extends React.Component {
                 modal:false
             })
         }
-
         DoneDate(item) {
         let date = new Date().getTime();
         if (item.completed){
@@ -339,7 +327,6 @@ export default class App extends React.Component {
         }
 
     }
-
         postData(data = {}) {
         var jsondata = data;
         var settings = {
@@ -357,9 +344,8 @@ export default class App extends React.Component {
         }
 
         $.ajax(settings).done(this.ToastShowFn("Добавлено!",
-            "Запись добавлена!"));
+            "Запись добавлена!"), this.getTodos());
     }
-
         putData(dataID, Changes = {}){
             var jsondata = Changes;
             var settings = {
@@ -379,7 +365,6 @@ export default class App extends React.Component {
             $.ajax(settings).done(this.ToastShowFn("Изменено!","Изменения Сохранены!"))
             ;
         }
-
         deleteData(dataID){
             var settings = {
                 "async": true,
@@ -395,5 +380,20 @@ export default class App extends React.Component {
 
             $.ajax(settings).done(this.ToastShowFn("Удалено!","Запись Удалена!"));
         }
-
+        sortbydate (date1, date2){
+            this.setState({
+                todos: [... this.state.todos.filter((item)=>{
+                    if (item.date_create>date) {
+                        item.body = document.getElementById("FormText").value ;
+                        item.title = document.getElementById("NameText").value ;
+                        this.DoneDate(item)
+                        this.putData(item._id,{
+                            body :item.body,
+                            title :item.title,
+                            done_at:item.done_at,
+                            updated_at:item.updated_at})
+                    }
+                    return true
+                })],
+        })}
 }
