@@ -60,6 +60,7 @@ export default class PostInside extends React.Component {
                     </CardBody>)
                     : <Spinner/> }
 
+
         </Card>
     }
 
