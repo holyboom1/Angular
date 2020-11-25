@@ -4,6 +4,7 @@ import Header from "Comp/header";
 import Home from "Comp/home";
 import Posts from "Comp/posts";
 import Users from "Comp/users";
+import Page404 from "Comp/404";
 import PostInside from "Comp/posts/itemInside";
 
 import {
@@ -25,6 +26,9 @@ export default class App extends Component{
     render(){
 
 
+        let {} = this.state;
+
+
         return(
             <Router>
                 <Container>
@@ -32,11 +36,10 @@ export default class App extends Component{
 
                     <Switch>
                         <Route exact path={"/"} component = {Home} />
-                        <Route exact path={"/posts"} component = {()=><Posts/>} />
+                        <Route exact path={"/posts"} component = {()=><Posts title={333333}/>} />
                         <Route exact path={"/posts/id/:id"} component = {PostInside} />
                         <Route exact path={"/users"} component = {Users} />
-
-
+                        <Route component = {Page404} />
 
                     </Switch>
 
@@ -47,6 +50,19 @@ export default class App extends Component{
     }
 
     componentDidMount(){
+        console.log("------componentDidMount");
+
+        fetch("https://jsonplaceholder.typicode.com/todos")
+            .then(data=>data.json())
+            .then(todos=>{
+                    // let date =  this.randomDate(todos)
+                    // this.setState({
+                    //     items: [... date],
+                    //     itemsCount : todos.length,
+                    //     sortedItems:[... date],
+                    // })
+                })
+            .catch(error=>console.log(error));
 
     }
 
