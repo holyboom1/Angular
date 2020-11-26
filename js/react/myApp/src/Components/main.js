@@ -1,5 +1,7 @@
-import React from "react"
-
+import React, {Fragment} from "react"
+import Header from "./header";
+import Content from "./Content";
+import Footer from "./Footer";
 
 export default class MainApp extends React.Component{
     constructor(props) {
@@ -8,7 +10,11 @@ export default class MainApp extends React.Component{
     }
 
     render() {
-        return <h1>hello</h1>
+        return <Fragment>
+                   <Header/>
+                   <Content/>
+                   <Footer/>
+                </Fragment>
     }
 
     componentDidMount() {
