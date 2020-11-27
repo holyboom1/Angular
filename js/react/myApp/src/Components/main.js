@@ -2,19 +2,34 @@ import React, {Fragment} from "react"
 import Header from "./header";
 import Content from "./Content";
 import Footer from "./Footer";
+import {Container, Button} from "reactstrap";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import ModalWindow from "./AppParts/modal";
+import {connect} from "react-redux";
 
-export default class MainApp extends React.Component{
+class MainApp extends React.Component{
     constructor(props) {
         super(props)
 
     }
 
     render() {
-        return <Fragment>
-                   <Header/>
-                   <Content/>
-                   <Footer/>
-                </Fragment>
+        return <Router>
+                    <ModalWindow/>
+                    <Button onClick={()=>{this.props.dispatch(
+                        {
+                        type : "TOGGLE", text : "" ,}
+                        )}}>123123</Button>
+                    <Container>
+                        <Header/>
+
+                        <Content/>
+
+                        <Footer/>
+                    </Container>
+                </Router>
+
+
     }
 
     componentDidMount() {
@@ -22,3 +37,13 @@ export default class MainApp extends React.Component{
     }
 
 }
+const mapStateFromProps = (store)=>{
+
+
+    return {
+        GlobalStore:store
+    }
+}
+
+
+export default connect(mapStateFromProps)(MainApp);
