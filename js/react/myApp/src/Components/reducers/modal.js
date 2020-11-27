@@ -5,14 +5,14 @@ export default (state = {
     switch (action.type) {
         case  "TOGGLE" : {
             return Object.assign({},{
-                toggle: `${!state.active}`,
+                toggle: !state.toggle,
                 text : action.text,
             })
         }
 
         case  "HIDE" : {
             return Object.assign({},{
-                active: false,
+                toggle: false,
                 text : null,
             })
         }

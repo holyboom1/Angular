@@ -4,33 +4,30 @@ import {connect} from "react-redux";
 
 const ModalWindow = (props) => {
 
-    // const {
-    //     buttonLabel,
-    //     className
-    // } = props;
-    //
-    // const [modal, setModal] = useState(false);
-    //
-    // const toggle = () => setModal(!modal);
-
-
 
     const modal=props.GlobalStore.modal.toggle
-    let toggle= ()=>{console.log(1111)}
-    let className=""
+    let toggle= ()=>{props.dispatch(
+        {
+            type : "TOGGLE", text : "" ,})}
+    let className=null
     const closeBtn = <button className="close" onClick={toggle}>&times;</button>;
-    console.log(props.GlobalStore.modal)
     return (
         <div>
             <Modal isOpen={modal} toggle={toggle} className={className}>
-                <ModalHeader toggle={toggle} close={closeBtn}>Modal title</ModalHeader>
+
+                <ModalHeader toggle={toggle} close={closeBtn}>
+                    {props.GlobalStore.modal.text}
+                </ModalHeader>
+
                 <ModalBody>
 
                 </ModalBody>
+
                 <ModalFooter>
                     <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
                     <Button color="secondary" onClick={toggle}>Cancel</Button>
                 </ModalFooter>
+
             </Modal>
         </div>
     );

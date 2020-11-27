@@ -15,12 +15,11 @@ class MainApp extends React.Component{
 
     render() {
         return <Router>
-                    <ModalWindow/>
-                    <Button onClick={()=>{this.props.dispatch(
-                        {
-                        type : "TOGGLE", text : "" ,}
-                        )}}>123123</Button>
+
+
                     <Container>
+                        <ModalWindow/>
+                        
                         <Header/>
 
                         <Content/>
