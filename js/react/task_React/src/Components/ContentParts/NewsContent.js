@@ -26,15 +26,15 @@ import {Col} from "reactstrap";
 
 
     return <Fragment>
+
      {data!==null ?
      <Row className={"row row-cols-1 row-cols-sm-3 "}>
-         {news.map(item => <NewsItem item={item} key={item.id} className={"m-2"}/>)}
+         {data.map(item => <NewsItem item={item} key={item.id} className={"m-2"}/>)}
      </Row>
         :
          <Row className={"justify-content-center p-2"}>
-             <Spinner color={"secondary"} className={"align-self-center"}/>
              {getNews()}
-             {console.log(data)}
+             <Spinner color={"secondary"} className={"align-self-center"}/>
          </Row>
 
 
