@@ -42,7 +42,9 @@ class ModalWindow extends React.Component{
 
     render() {
         const modal=this.props.GlobalStore.modal.toggle
-        let toggle= ()=>{this.props.dispatch(
+        let toggle= ()=>{
+            this.setState({errorinput:false})
+            this.props.dispatch(
             {
                 type : "TOGGLE", text : "" ,})}
         let className=null

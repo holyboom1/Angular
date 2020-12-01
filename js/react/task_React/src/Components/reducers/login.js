@@ -1,10 +1,10 @@
-console.log(document.cookie)
+
 const login = (state = {
     loginned: false,
 
 
 } , action) => {
-    console.log(state)
+
     switch (action.type) {
         case  "LOGIN" : {
             document.cookie="loginUser=true"
