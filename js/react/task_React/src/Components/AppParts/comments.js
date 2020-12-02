@@ -26,7 +26,7 @@ class Comments extends React.Component {
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": `https://testitschool-c0b7.restdb.io/rest/news-1/${this.props.id}`,
+                "url": `https://testitschool-c0b7.restdb.io/rest/news-1/${this.props.id}["comments"]`,
                 "method": "PUT",
                 "headers": {
                     "content-type": "application/json",
@@ -57,6 +57,7 @@ class Comments extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
+
         let data = {comments : [{
             name : this.state.name,
             email :this.state.email,
@@ -65,7 +66,7 @@ class Comments extends React.Component {
 
         console.log(data)
 
-         // this.submitComment(data)
+         this.submitComment(data)
 
 
     }

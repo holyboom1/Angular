@@ -3,8 +3,6 @@ import news from "./../json/news.json"
 import {connect} from "react-redux";
 import NewsItem from "./contentPart/newsItem";
 import {Row, Spinner} from "reactstrap"
-import {Col} from "reactstrap";
-
 
  function NewsContent(props) {
     const [data,setData] = useState(null);

@@ -1,10 +1,8 @@
 import React, {Fragment} from "react"
 import {Card,Row, CardBody, Button,CardImg, CardText, CardTitle, CardSubtitle, Col, CardLink, CardImgOverlay} from "reactstrap"
-import FullNews from "./fullNewS"
 import {connect} from "react-redux";
 import {Link, Switch, Route, Redirect} from "react-router-dom";
-import fullNewS from "./fullNewS";
-import Comments from "../../AppParts/comments";
+
 
 function NewsItem(props) {
     let item=props.item
@@ -33,7 +31,7 @@ function NewsItem(props) {
 
         <Card inverse  className={"col-sm-6"} >
                 <Link to={`/news`} onClick={login}>
-                <CardImg className={""} width="100%" src={`${item.src}`} alt="Card image cap"   />
+                <CardImg className={""} width="100%" src={`https://testitschool-c0b7.restdb.io/media/${item.src}?key=5fadbc0e8639597288385325`} alt="Card image cap"   />
                 <CardImgOverlay >
                     <CardTitle  tag="h5" className={"text-light"}>{item.title}</CardTitle>
                     <CardText className={" text-truncate text-light"}>
