@@ -2,11 +2,13 @@ import React, {Fragment, useState} from "react"
 import news from "./../json/news.json"
 import {connect} from "react-redux";
 import NewsItem from "./contentPart/newsItem";
-import {Row, Spinner} from "reactstrap"
+import {Row, Spinner, ButtonGroup, Button} from "reactstrap"
+import {Col} from "reactstrap/es";
 
  function NewsContent(props) {
     const [data,setData] = useState(null);
-
+    let filterType;
+    const [filterCat, setFilter] = useState(0)
      let getNews = ()=> {
          var settings = {
              "async": true,
@@ -19,19 +21,56 @@ import {Row, Spinner} from "reactstrap"
                  "cache-control": "no-cache"
              }
          }
-         $.ajax(settings).done(response=>{setData(response)});
+         $.ajax(settings).done(response=>{setData(response)}).then({getCatFromState});
      }
 
+        let getCatFromState= ()=> {
+            console.log(props.GlobalStore.FilterState.SetFilter)
+            setFilter(props.GlobalStore.FilterState.SetFilter)
+            props.dispatch({type : "SetFilter", set_filter: 0 })
+            console.log(props.GlobalStore.FilterState.SetFilter)
+        }
 
     return <Fragment>
 
      {data!==null ?
+         <Fragment>
+             <Row>
+
+                 <Col className={"text-right"}>
+                    Фильтр по категориям
+                 </Col>
+
+                 <Button  className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("people")}}>
+                     people
+                 </Button>
+
+                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("tech")}}>
+                     tech
+                 </Button>
+
+
+                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("auto")}}>
+                     auto
+                 </Button>
+
+                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter(0)}}>
+                     no filter
+                 </Button>
+
+             </Row>
      <Row className={"row row-cols-1 row-cols-sm-3 "}>
-         {data.map(item => <NewsItem item={item} key={item.id} className={"m-2"}/>)}
+         {filterCat===0 ? data.map(item => <NewsItem item={item} key={item.id} className={"m-2"}/>) :
+                 filterItems(data, filterCat).map(item =><NewsItem item={item} key={item.id} className={"m-2"}/>)
+             }
+
+
      </Row>
+         </Fragment>
         :
          <Row className={"justify-content-center p-2"}>
              {getNews()}
+
              <Spinner color={"secondary"} className={"align-self-center"}/>
          </Row>
 
@@ -40,7 +79,17 @@ import {Row, Spinner} from "reactstrap"
     </Fragment>
  }
 
+function filterItems(data, filterCat) {
+     data=[].concat(data);
+    let x = data.filter((item) => {
+        if (item.category === filterCat) {
+            return true
+        }
 
+    })
+
+    return x;
+}
 
 const mapStateFromProps = (store)=>{
 

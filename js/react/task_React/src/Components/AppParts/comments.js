@@ -26,7 +26,7 @@ class Comments extends React.Component {
             var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": `https://testitschool-c0b7.restdb.io/rest/news-1/${this.props.id}["comments"]`,
+                "url": `https://testitschool-c0b7.restdb.io/rest/news-1/${this.props.id}`,
                 "method": "PUT",
                 "headers": {
                     "content-type": "application/json",
@@ -37,7 +37,7 @@ class Comments extends React.Component {
                 "data": JSON.stringify(submitData)
             }
             console.log(submitData)
-            $.ajax(settings).done(console.log("ok"))
+            $.ajax(settings).done(response => console.log(response))
             ;
         }
 
@@ -76,6 +76,7 @@ class Comments extends React.Component {
         return <Fragment>
             <Form onSubmit={this.onSubmit}>
                 <FormGroup>
+                    <h3>COMMENTS</h3>
                     <Label for="name">Name</Label>
                     <Input type="Name" name="Name" id="Name" placeholder="Name" onChange={this.onChangeName}/>
 
@@ -92,10 +93,12 @@ class Comments extends React.Component {
                 (comment, i) => {
                     return <Alert color="success" key={i}>
                         <h4 className="alert-heading">Name : {comment.name}</h4>
+                        <h5>text</h5>
                         <p>
                             {comment.comment_text}
                         </p>
                         <hr/>
+                        <h5>email</h5>
                         <p className="mb-0">
                             {comment.email}
                         </p>

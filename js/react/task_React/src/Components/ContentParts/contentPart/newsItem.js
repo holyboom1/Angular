@@ -19,25 +19,32 @@ function NewsItem(props) {
             <Link  to={`/news/${item._id}`}>
             <CardImg className={""} width="100%" src={`https://testitschool-c0b7.restdb.io/media/${item.src}?key=5fadbc0e8639597288385325`} alt="Card image cap"  />
             <CardImgOverlay >
-                <CardTitle tag="h5" className={"text-light"}>{item.title}</CardTitle>
-                <CardText className={" text-truncate text-light"}>
+                <CardTitle tag="h5" className={"text-light small"}>{item.title}</CardTitle>
+                <CardText className={" text-truncate text-light small"}>
                     {item.preview}
                 </CardText>
+                <p className={" text-truncate text-light small "}>
+                    Категория: {item.category}<br/>
+                    Статус : {item.statuc}
+                </p>
 
             </CardImgOverlay>
             </Link>
         </Card>
             :
 
-        <Card inverse  className={"col-sm-6"} >
+        <Card inverse  className={"col-sm-6 overflow-hidden"} >
                 <Link to={`/news`} onClick={login}>
                 <CardImg className={""} width="100%" src={`https://testitschool-c0b7.restdb.io/media/${item.src}?key=5fadbc0e8639597288385325`} alt="Card image cap"   />
                 <CardImgOverlay >
-                    <CardTitle  tag="h5" className={"text-light"}>{item.title}</CardTitle>
-                    <CardText className={" text-truncate text-light"}>
+                    <CardTitle  tag="h5" className={"text-light small"}>{item.title}</CardTitle>
+                    <CardText className={" text-truncate text-light small"}>
                         {item.preview}
                     </CardText>
-
+                    <p className={" text-truncate text-light small "}>
+                        Категория: {item.category}<br/>
+                        Статус : {item.statuc}
+                    </p>
                 </CardImgOverlay>
                 </Link>
         </Card>

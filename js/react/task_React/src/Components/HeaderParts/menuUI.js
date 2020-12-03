@@ -7,6 +7,10 @@ import {ButtonGroup} from "reactstrap/es";
 
  function MenuUI(props) {
 
+     let login = ()=> {
+         props.dispatch({type: "LOGIN_MODAL", text: "Необходимо авторизоваться!"})
+     }
+
     return <Row >
         <Col xs={2}>
             <Link className={"btn btn-secondary btn-sm"} to={"/"}>Home</Link>
@@ -18,25 +22,32 @@ import {ButtonGroup} from "reactstrap/es";
         <Col xs={2}>
             <Link className={"btn btn-secondary btn-sm"} to={"/article"}>Article</Link>
         </Col>:null}
-
+        <Col xs={2}>
+            {document.cookie.split(";").map((item)=>{ return item.trim()}).includes("loginUser=true")?
+                <Link className={"btn btn-secondary btn-sm"} to={"/profile"}>Profile</Link>:
+                <Button className={"btn btn-secondary btn-sm"} onClick={login}>Profile</Button>
+            }
+        </Col>
 
         {props.footer!==true ?
             <Fragment >
             {document.cookie.split(";").map((item)=>{ return item.trim()}).includes("loginUser=true")  ?
-                    <Col xs={4} className={"offset-4 "}>
-                        <ButtonGroup className={"offset-3"}>
-                            <Link className={"btn btn-success btn-sm"} to={"/profile"}>Profile</Link>
+                    <Col xs={2} className={"offset-4 "}>
+
                             <Button color="danger" size="sm"
                                     onClick={()=>{props.dispatch({type : "LOGOFF"})
-                                                         document.cookie=`loginUser=false;max-age=0`;}}>
+                                                         document.cookie=`loginUser=false;max-age=0`;
+                                        props.dispatch({type : "SHOW_ALERT" , text : "Вы вышил!" ,})
+                                        setTimeout(()=>{props.dispatch({type : "HIDE_ALERT" })},5000)}}>
                                     LogOut
                             </Button>
-                        </ButtonGroup>
+
                     </Col>
                 :
-                    <Col xs={2} className={"offset-4"}>
+                    <Col xs={2} className={"offset-2"}>
                         <Button color="success" size="sm" onClick={()=>{
                             props.dispatch({type:"LOGIN_MODAL"})
+
                             // props.dispatch({type: "LOGIN"})
                             //
                         }}>Login</Button>
@@ -49,6 +60,8 @@ import {ButtonGroup} from "reactstrap/es";
 
     </Row>
 }
+
+
 const mapStateFromProps = (store)=>{
 
 

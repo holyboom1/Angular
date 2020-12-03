@@ -1,13 +1,25 @@
-import  React from "react"
+import React, {Fragment} from "react"
+import {Button, Row} from "reactstrap";
 
 
 export default function HomeContent(props) {
 
 
 
-    return <h1>HOME</h1>
+    return <Fragment>
+    <h1>Categories</h1>
+        <Button  className={"m-1"} size="sm" color="secondary" >
+            people
+        </Button>
 
-//      <NewsPeople/>
-//      <NewsAuto/>
-//      <NewsTech/>
+        <Button className={"m-1"} size="sm" color="secondary" >
+            tech
+        </Button>
+
+        <Button className={"m-1"} size="sm" color="secondary">
+            auto
+        </Button>
+
+    </Fragment>
+
 }

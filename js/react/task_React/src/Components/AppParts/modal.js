@@ -32,7 +32,8 @@ class ModalWindow extends React.Component{
         if(name==="admin" && this.state.password==="123"){
                  this.props.dispatch({type : "TOGGLE", text : "" ,})
                 this.props.dispatch({type :"LOGIN"} )
-
+                this.props.dispatch({type : "SHOW_ALERT" , text : "Вы успешно авторизованы" ,})
+                 setTimeout(()=>{this.props.dispatch({type : "HIDE_ALERT" })},5000)
             }
         else {this.setState({errorinput: true})}
 
