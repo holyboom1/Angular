@@ -13,18 +13,18 @@ import {ButtonGroup} from "reactstrap/es";
 
     return <Row >
         <Col xs={2}>
-            <Link className={"btn btn-secondary btn-sm"} to={"/"}>Home</Link>
+            <Link className={"btn btn-secondary btn-sm"} to={"/"} onClick={()=>{props.dispatch({type : "SetFilter", set_filter: 0 })}}>Home</Link>
         </Col>
         <Col xs={2}>
-            <Link className={"btn btn-secondary btn-sm"} to={"/news"}>News</Link>
+            <Link className={"btn btn-secondary btn-sm"} to={"/news"} onClick={()=>{props.dispatch({type : "SetFilter", set_filter: 0 })}}>News</Link>
         </Col>
         {!document.cookie.split(";").map((item)=>{ return item.trim()}).includes("loginUser=true")?
         <Col xs={2}>
-            <Link className={"btn btn-secondary btn-sm"} to={"/article"}>Article</Link>
+            <Link className={"btn btn-secondary btn-sm"} to={"/article"} onClick={()=>{props.dispatch({type : "SetFilter", set_filter: 0 })}}>Article</Link>
         </Col>:null}
         <Col xs={2}>
             {document.cookie.split(";").map((item)=>{ return item.trim()}).includes("loginUser=true")?
-                <Link className={"btn btn-secondary btn-sm"} to={"/profile"}>Profile</Link>:
+                <Link className={"btn btn-secondary btn-sm"} to={"/profile"} onClick={()=>{props.dispatch({type : "SetFilter", set_filter: 0 })}}>Profile</Link>:
                 <Button className={"btn btn-secondary btn-sm"} onClick={login}>Profile</Button>
             }
         </Col>
@@ -48,8 +48,6 @@ import {ButtonGroup} from "reactstrap/es";
                         <Button color="success" size="sm" onClick={()=>{
                             props.dispatch({type:"LOGIN_MODAL"})
 
-                            // props.dispatch({type: "LOGIN"})
-                            //
                         }}>Login</Button>
                     </Col>
             }

@@ -7,8 +7,6 @@ import {Col} from "reactstrap/es";
 
  function NewsContent(props) {
     const [data,setData] = useState(null);
-    let filterType;
-    const [filterCat, setFilter] = useState(0)
      let getNews = ()=> {
          var settings = {
              "async": true,
@@ -21,15 +19,9 @@ import {Col} from "reactstrap/es";
                  "cache-control": "no-cache"
              }
          }
-         $.ajax(settings).done(response=>{setData(response)}).then({getCatFromState});
+         $.ajax(settings).done(response=>{setData(response)});
      }
 
-        let getCatFromState= ()=> {
-            console.log(props.GlobalStore.FilterState.SetFilter)
-            setFilter(props.GlobalStore.FilterState.SetFilter)
-            props.dispatch({type : "SetFilter", set_filter: 0 })
-            console.log(props.GlobalStore.FilterState.SetFilter)
-        }
 
     return <Fragment>
 
@@ -41,27 +33,27 @@ import {Col} from "reactstrap/es";
                     Фильтр по категориям
                  </Col>
 
-                 <Button  className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("people")}}>
+                 <Button  className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("people", props)}}>
                      people
                  </Button>
 
-                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("tech")}}>
+                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("tech", props)}}>
                      tech
                  </Button>
 
 
-                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("auto")}}>
+                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter("auto", props)}}>
                      auto
                  </Button>
 
-                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter(0)}}>
+                 <Button className={"m-1"} size="sm" color="secondary" onClick={()=>{setFilter(0 ,props)}}>
                      no filter
                  </Button>
 
              </Row>
      <Row className={"row row-cols-1 row-cols-sm-3 "}>
-         {filterCat===0 ? data.map(item => <NewsItem item={item} key={item.id} className={"m-2"}/>) :
-                 filterItems(data, filterCat).map(item =><NewsItem item={item} key={item.id} className={"m-2"}/>)
+         {props.GlobalStore.FilterState.SetFilter===0 ? data.map(item => <NewsItem item={item} key={item.id} className={"m-2"}/>) :
+                 filterItems(data, props.GlobalStore.FilterState.SetFilter).map(item =><NewsItem item={item} key={item.id} className={"m-2"}/>)
              }
 
 
@@ -90,6 +82,11 @@ function filterItems(data, filterCat) {
 
     return x;
 }
+
+function setFilter (filter, props){
+    props.dispatch({type : "SetFilter", set_filter: filter })
+}
+
 
 const mapStateFromProps = (store)=>{
 

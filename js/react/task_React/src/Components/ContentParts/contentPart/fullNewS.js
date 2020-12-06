@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {Link, Redirect} from "react-router-dom"
 import Comments from "../../AppParts/comments";
 import {Spinner} from "reactstrap/es";
+import Carusel from "../../AppParts/carusel";
 
 function FullNews(props) {
     const [data,setData] = useState(null);
@@ -25,7 +26,7 @@ function FullNews(props) {
 
     return <Fragment>
 
-        {!document.cookie.split(";").map((item)=>{ return item.trim()}).includes("loginUser=true")?<Redirect to="/news" on/> :
+        {!document.cookie.split(";").map((item)=>{ return item.trim()}).includes("loginUser=true")?<Redirect to="/news" /> :
             data==null ?
                 <Row className={"justify-content-center p-2"}>
                     {getThisNews()}
@@ -45,12 +46,13 @@ function FullNews(props) {
                     <hr className="my-2" />
 
                     <CardGroup>
-                        {data.gallery.map((item, i)=>{
-                            return   <Card key={i}>
-                                        <CardImg top width="100%" src={`https://testitschool-c0b7.restdb.io/media/${item}?key=5fadbc0e8639597288385325`}  />
-                                    </Card>
+                        <Carusel items={data.gallery}/>
+                        {/*{data.gallery.map((item, i)=>{*/}
+                        {/*    return   <Card key={i}>*/}
+                        {/*                <CardImg top width="100%" src={`https://testitschool-c0b7.restdb.io/media/${item}?key=5fadbc0e8639597288385325`}  />*/}
+                        {/*            </Card>*/}
 
-                        })}
+                        {/*})}*/}
 
                     </CardGroup>
 

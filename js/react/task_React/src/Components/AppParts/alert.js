@@ -11,11 +11,8 @@ constructor(props) {
 
 
 
-    //
-    // {()=>{setTimeout(()=>{},5000)}}
     render()
 {
-    console.log(this.props.GlobalStore.alertShow.showAlert)
     return       <Fragment>
         {this.props.GlobalStore.alertShow.showAlert===true ?
 

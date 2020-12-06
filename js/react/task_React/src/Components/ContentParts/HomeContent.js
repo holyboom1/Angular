@@ -1,25 +1,40 @@
-import React, {Fragment} from "react"
-import {Button, Row} from "reactstrap";
+import React, {Fragment, useEffect} from "react"
+import {connect} from "react-redux";
+import {Redirect, Link} from "react-router-dom";
 
 
-export default function HomeContent(props) {
-
+function HomeContent(props) {
 
 
     return <Fragment>
     <h1>Categories</h1>
-        <Button  className={"m-1"} size="sm" color="secondary" >
+        <Link to="/news"  className={"m-1  btn btn-small btn-secondary"} onClick={()=>{setFilter("people", props)}}>
             people
-        </Button>
+        </Link>
 
-        <Button className={"m-1"} size="sm" color="secondary" >
+        <Link to="/news"  className={"m-1  btn btn-small btn-secondary"} onClick={()=>{setFilter("tech", props)}}>
             tech
-        </Button>
+        </Link>
 
-        <Button className={"m-1"} size="sm" color="secondary">
+        <Link  to="/news"  className={"m-1  btn btn-small btn-secondary"} onClick={()=>{setFilter("auto", props)}}>
             auto
-        </Button>
+        </Link>
 
     </Fragment>
 
 }
+function setFilter (filter, props){
+    props.dispatch({type : "SetFilter", set_filter: filter })
+
+}
+
+const mapStateFromProps = (store)=>{
+
+
+    return {
+        GlobalStore:store
+    }
+}
+
+
+export default connect(mapStateFromProps)(HomeContent);
