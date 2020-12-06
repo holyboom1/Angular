@@ -9,6 +9,8 @@ import {ButtonGroup} from "reactstrap/es";
 
      let login = ()=> {
          props.dispatch({type: "LOGIN_MODAL", text: "Необходимо авторизоваться!"})
+         props.dispatch({type : "SHOW_ALERT" , text : "Необходимо авторизоваться!" ,})
+         setTimeout(()=>{props.dispatch({type : "HIDE_ALERT" })},5000)
      }
 
     return <Row >
