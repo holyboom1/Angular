@@ -9,20 +9,33 @@ import {Component, Input, Output} from '@angular/core';
 
 
 export class AppComponent {
-  title = 'angular';
-  @Input() ok;
-  public value: number;
-  public v1 = 0;
-  public v2 = 0;
 
-  constructor() {
-    this.value = 0;
-  }
-
-  vqw = ($event , v) => {
-    v === 1 ? this.v1 = $event.target.value :  this.v2 = $event.target.value;
-  }
-  set = event => {
-    this.value = event;
-  }
+  posts = [
+    {
+      author: "name1",
+      img: "https://picsum.photos/200",
+      likes: 1232,
+      comments: [{name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"}]
+    },
+    {
+      author: "name2",
+      img: "https://picsum.photos/200",
+      likes: 1232,
+      comments: [{name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"}]
+    }, {
+      author: "name3",
+      img: "https://picsum.photos/200",
+      likes: 1232,
+      comments: [{name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"},
+        {name: "seqwe", comment: "asdasdad"}]
+    },
+  ]
 }

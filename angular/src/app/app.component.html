@@ -1,6 +1,7 @@
-<div> result !!! ==>>> {{v1}} + {{v2}} = {{value}}</div>
-<input (change)="vqw($event , 1)"  placeholder="value 1">
-<input (change)="vqw($event , 2)" placeholder="value 2">
-<app-button [v1]="v1" [v2]="v2" [text]="'Click ME'" (ok)="set($event)" ></app-button>
-<div> result !!! ==>>> {{value}}   </div>
+
+
+
+
+<app-post *ngFor=" let post of posts" [post]="post" class="m-1"></app-post>
+
 
