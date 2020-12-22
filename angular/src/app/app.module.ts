@@ -12,6 +12,7 @@ import { CommentsComponent } from './post/footer-of-post/comment/comments.compon
 import { OneCommentComponent } from './post/footer-of-post/comment/one-comment/one-comment.component';
 import { AddcommentComponent } from './post/footer-of-post/comment/addcomment/addcomment.component';
 import { MypipePipe } from './pipes/mypipe.pipe';
+import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,13 @@ import { MypipePipe } from './pipes/mypipe.pipe';
     CommentsComponent,
     OneCommentComponent,
     AddcommentComponent,
-    MypipePipe
+    MypipePipe,
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgxBootstrapIconsModule.pick(allIcons)
   ],
   providers: [],
   bootstrap: [AppComponent]

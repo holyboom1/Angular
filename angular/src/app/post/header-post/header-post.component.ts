@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class HeaderPostComponent implements OnInit {
   @Input() name;
+  @Input() gender;
   constructor() { }
 
   ngOnInit(): void {
