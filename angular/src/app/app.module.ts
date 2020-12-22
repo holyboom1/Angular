@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { CommentsComponent } from './post/footer-of-post/comment/comments.component';
 import { OneCommentComponent } from './post/footer-of-post/comment/one-comment/one-comment.component';
 import { AddcommentComponent } from './post/footer-of-post/comment/addcomment/addcomment.component';
+import { MypipePipe } from './pipes/mypipe.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AddcommentComponent } from './post/footer-of-post/comment/addcomment/ad
     FooterOfPostComponent,
     CommentsComponent,
     OneCommentComponent,
-    AddcommentComponent
+    AddcommentComponent,
+    MypipePipe
   ],
   imports: [
     BrowserModule,

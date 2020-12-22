@@ -1,12 +1,15 @@
 <div>
-  <div> likes : {{likes}}</div>
+  <div> likes : {{likes }}</div>
 <div  class="row justify-content-center">
-  <button class="btn-info"><i class="bi bi-heart">sdf</i></button>
-  <button class="btn-info"> comment</button>
+  <button class="btn-info" (click)="AddLikes()">
+    <span *ngIf="!likeAdd; else liked">Like</span>
+    <ng-template #liked>Liked</ng-template>
+  </button>
+  <button class="btn-info" (click)="ShowComments()"> comment</button>
   <button class="btn-info"> repost</button>
 </div>
 <div class="row justify-content-center border  border-dark" >
 
-      <app-comment [comments]="comments"></app-comment>
+      <app-comment *ngIf="CommentsShow" [comments]="comments"></app-comment>
 </div>
 </div>

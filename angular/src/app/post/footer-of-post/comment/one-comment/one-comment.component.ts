@@ -9,7 +9,15 @@ export class OneCommentComponent implements OnInit {
   @Input() comment;
   constructor() { }
 
+  likeAdd : boolean = false
+  CommentsShow : boolean= false
   ngOnInit(): void {
   }
 
+  AddLikes(){
+
+  }
+  ShowComments(){
+      this.CommentsShow= !this.CommentsShow
+  }
 }
