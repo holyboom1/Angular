@@ -1,5 +1,5 @@
 <div>
-  <div> likes : {{likes }}</div>
+  <div class="row justify-content-center"> likes : {{likes }}</div>
 <div  class="row justify-content-center">
   <button class="btn btn-dark m-1" (click)="AddLikes()">
     <span *ngIf="!likeAdd; else liked">
@@ -19,9 +19,9 @@
   <button class="btn btn-dark m-1" (click)="ShowComments()"> comment</button>
   <button class="btn btn-dark m-1"> repost</button>
 </div>
-<div class="row justify-content-center border  border-dark" >
+<div  *ngIf="CommentsShow" class="row " >
 
-      <app-comment *ngIf="CommentsShow" [comments]="comments"></app-comment>
+      <app-comment [comments]="comments" class="w-100"></app-comment>
 </div>
 
 </div>

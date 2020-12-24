@@ -1,5 +1,11 @@
-<div>
-  <input name="name" placeholder="name" (change)="setName($event)"  important>
-  <input name="comment" placeholder="comment" (change)="setComment($event)" important>
-  <button (click)="addComment(name, comment)" >send</button>
+
+
+
+<div class="col justify-content-center w-100">
+  <input  class="form-control form-control-sm m-1" name="name" placeholder="name" (change)="setName($event)"  important>
+  <input  class="form-control form-control-sm m-1"  name="comment" placeholder="comment" (change)="setComment($event)" important>
+  <div class="row justify-content-center">
+    <button type="submit" class="btn btn-info m-1"(click)="addComment(name, comment)" >send</button>
+  </div>
 </div>
+
