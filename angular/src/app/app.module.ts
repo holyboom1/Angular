@@ -13,6 +13,7 @@ import { OneCommentComponent } from './post/footer-of-post/comment/one-comment/o
 import { AddcommentComponent } from './post/footer-of-post/comment/addcomment/addcomment.component';
 import { MypipePipe } from './pipes/mypipe.pipe';
 import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
+import { SelectedDirective } from './selected.directive';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
     OneCommentComponent,
     AddcommentComponent,
     MypipePipe,
+    SelectedDirective,
   ],
   imports: [
     BrowserModule,

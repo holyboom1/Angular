@@ -873,3 +873,29 @@ reducer это функция
 react portal рендерит содержимое вне дерева реакта
 
 suspence
+
+
+
+
+angular
+дерективы
+структурные
+***
+ngif
+ngfor
+ngswitch
+ngswichcase
+ngswichdefault
+
+
+дерективы атрибуты
+ngclass
+ngstyle
+ngshow
+nghide
+
+
+class.nameofclass="условие"
+style.background="значение"
+
+самописные дерективы

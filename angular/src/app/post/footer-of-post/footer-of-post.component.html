@@ -1,17 +1,17 @@
 <div>
-  <div class="row justify-content-center"> likes : {{likes }}</div>
+  <div class="row justify-content-center" appSelected> likes : {{likes }}</div>
 <div  class="row justify-content-center">
-  <button class="btn btn-dark m-1" (click)="AddLikes()">
-    <span *ngIf="!likeAdd; else liked">
-      <i-bs
-        name="heart"
-        class="text-primary">
+  <button appSelected class="btn btn-dark m-1" (click)="AddLikes()">
+
+      <i-bs *ngIf="!likeAdd; else liked" appSelected [likeStatys]="likeAdd"
+            name="heart"
+            class="text-primary">
       </i-bs> Like
-    </span>
+
     <ng-template #liked>
-      <i-bs
+      <i-bs appSelected
         name="heart-fill"
-        class="text-primary"
+        class="text-danger"
       >
       </i-bs> you Liked
     </ng-template>
