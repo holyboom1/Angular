@@ -14,6 +14,7 @@ import { AddcommentComponent } from './post/footer-of-post/comment/addcomment/ad
 import { MypipePipe } from './pipes/mypipe.pipe';
 import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 import { SelectedDirective } from './selected.directive';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SelectedDirective } from './selected.directive';
     BrowserModule,
     NgbModule,
     FormsModule,
-    NgxBootstrapIconsModule.pick(allIcons)
+    NgxBootstrapIconsModule.pick(allIcons),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

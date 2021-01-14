@@ -899,3 +899,7 @@ class.nameofclass="условие"
 style.background="значение"
 
 самописные дерективы
+
+
+
+Observable

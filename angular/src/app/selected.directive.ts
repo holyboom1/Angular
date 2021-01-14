@@ -33,7 +33,6 @@ export class SelectedDirective {
 
 
   constructor(private el: ElementRef) {
-    console.log(el)
 
   }
 
