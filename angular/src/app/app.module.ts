@@ -16,6 +16,9 @@ import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 import { LikedDirective } from './liked.directive';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
+import { MainAppLoadComponent } from './main-app-load/main-app-load.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -30,13 +33,17 @@ import {HttpClientModule} from "@angular/common/http";
     MypipePipe,
     LikedDirective,
     HeaderComponent,
+    MainAppLoadComponent,
+
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     NgxBootstrapIconsModule.pick(allIcons),
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

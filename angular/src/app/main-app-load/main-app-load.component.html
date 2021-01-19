@@ -1,0 +1,7 @@
+<span *ngIf="posts == undefined " ></span>
+
+<ng-template  [ngIf]="posts != undefined" >
+
+  <app-post *ngFor=" let post of posts" [post]="post" class="m-1"></app-post>
+
+</ng-template>

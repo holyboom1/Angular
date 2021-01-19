@@ -49,11 +49,32 @@ export class LSService {
         download_url : localStorage.getItem(`id*${i}*-download_url`),
         likes : localStorage.getItem(`id*${i}*-likes`),
         comments : comments,
+        id: i
       }
     }
     return data;
   }
 
+  getDataID (id){
+    let data : object;
+      let comData = localStorage.getItem(`id*${id}*-comments`).split("*")
+      let comments = []
+      for ( let com of comData) {
+        let part = com.split("&")
+        part[0]!="" ?
+          comments.push({name: part[0], comment: part[1]}) : null
+      }
+      data = {
+        author : localStorage.getItem(`id*${id}*-author`),
+        gender : localStorage.getItem(`id*${id}*-gender`),
+        download_url : localStorage.getItem(`id*${id}*-download_url`),
+        likes : localStorage.getItem(`id*${id}*-likes`),
+        comments : comments,
+        id: id
+      }
+
+    return data;
+  }
 
 
 }

@@ -1,5 +1,5 @@
 
- <div class="container border justify-content-center rounded w-75">
+ <div class="container border justify-content-center rounded w-75" (click)="topost()">
 
   <app-header-post [name]="post.author" [gender]="post.gender"></app-header-post>
   <app-body-of-post [src]="post.download_url"></app-body-of-post>
