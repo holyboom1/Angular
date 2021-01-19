@@ -3,7 +3,7 @@ import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 @Directive({
   selector: '[appSelected]'
 })
-export class SelectedDirective {
+export class LikedDirective {
   set type(value: any) {
     this._type = value;
   }
@@ -29,8 +29,6 @@ export class SelectedDirective {
   public onMouseLeave(event): void {
     this.el.nativeElement.style= "transition: .5s; "
   }
-
-
 
   constructor(private el: ElementRef) {
 

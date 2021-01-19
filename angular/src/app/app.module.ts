@@ -13,7 +13,8 @@ import { OneCommentComponent } from './post/footer-of-post/comment/one-comment/o
 import { AddcommentComponent } from './post/footer-of-post/comment/addcomment/addcomment.component';
 import { MypipePipe } from './pipes/mypipe.pipe';
 import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
-import { SelectedDirective } from './selected.directive';
+import { LikedDirective } from './liked.directive';
+import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
@@ -27,7 +28,8 @@ import {HttpClientModule} from "@angular/common/http";
     OneCommentComponent,
     AddcommentComponent,
     MypipePipe,
-    SelectedDirective,
+    LikedDirective,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
