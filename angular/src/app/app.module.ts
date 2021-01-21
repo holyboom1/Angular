@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderPostComponent } from './post/header-post/header-post.component';
 import { BodyOfPostComponent } from './post/body-of-post/body-of-post.component';
 import { FooterOfPostComponent } from './post/footer-of-post/footer-of-post.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CommentsComponent } from './post/footer-of-post/comment/comments.component';
 import { OneCommentComponent } from './post/footer-of-post/comment/one-comment/one-comment.component';
 import { AddcommentComponent } from './post/footer-of-post/comment/addcomment/addcomment.component';
@@ -19,6 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import { MainAppLoadComponent } from './main-app-load/main-app-load.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,10 @@ import {AppRoutingModule} from "./app-routing.module";
     NgxBootstrapIconsModule.pick(allIcons),
     HttpClientModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

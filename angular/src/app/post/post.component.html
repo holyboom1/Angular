@@ -1,7 +1,7 @@
 
- <div class="container border justify-content-center rounded w-75" (click)="topost()">
+ <div class="container border justify-content-center rounded w-50" >
 
   <app-header-post [name]="post.author" [gender]="post.gender"></app-header-post>
-  <app-body-of-post [src]="post.download_url"></app-body-of-post>
+  <app-body-of-post [src]="post.download_url" (click)="topost()"></app-body-of-post>
   <app-footer-of-post [likes]="post.likes" [comments]="post.comments" ></app-footer-of-post>
  </div>
