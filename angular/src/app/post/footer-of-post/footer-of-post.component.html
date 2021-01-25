@@ -6,14 +6,14 @@
       <i-bs *ngIf="!likeAdd; else liked" appSelected [likeStatys]="likeAdd"
             name="heart"
             class="text-primary">
-      </i-bs> Like
+      </i-bs>
 
     <ng-template #liked>
       <i-bs appSelected
         name="heart-fill"
         class="text-danger"
       >
-      </i-bs> you Liked
+      </i-bs>
     </ng-template>
   </button>
   <button class="btn btn-dark m-1" (click)="ShowComments()"> comment</button>
@@ -21,7 +21,7 @@
 </div>
 <div  *ngIf="CommentsShow" class="row " >
 
-      <app-comment [comments]="comments" class="w-100"></app-comment>
+      <app-comment [idItem]="idItem"  class="w-100"></app-comment>
 </div>
 
 </div>

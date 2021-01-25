@@ -1,0 +1,73 @@
+
+
+<!--сообщения -->
+<span *ngIf="data.type=='message'">
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>{{data.content}}</div>
+<div mat-dialog-actions>
+  <button color="warn" mat-dialog-close mat-raised-button>Close</button>
+</div>
+</span>
+
+<!--Модаль логина -->
+<span *ngIf="data.type=='login'">
+        <span [formGroup]="LoginForm">
+        <h1 mat-dialog-title>{{data.title}}</h1>
+        <div mat-dialog-content>{{data.content}}</div>
+        <mat-form-field appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="userName">
+          <mat-error *ngIf="LoginForm.controls.userName.invalid ||
+                              LoginForm.controls.userName.dirty &&
+                              LoginForm.controls.userName.touched ">Только латиница ! Мин длинна 4 символа ! </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput  type="password" formControlName="password">
+          <mat-error *ngIf="LoginForm.controls.password.invalid ||
+                              LoginForm.controls.password.dirty &&
+                              LoginForm.controls.password.touched ">Только латиница ! Мин длинна 4 символа ! </mat-error>
+
+        </mat-form-field>
+        <div mat-dialog-actions align="end">
+          <button mat-raised-button [mat-dialog-close]="true" [disabled]="LoginForm.invalid"  (click)="data.onClickFN( LoginForm.controls.userName.value,  LoginForm.controls.password.value)">Go</button>
+          <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        </div>
+      </span>
+</span>
+<!--модаль регистрации -->
+<span *ngIf="data.type=='register'">
+        <span [formGroup]="registerForm">
+        <h1 mat-dialog-title>{{data.title}}</h1>
+        <div mat-dialog-content>{{data.content}}</div>
+        <mat-form-field appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="userName">
+          <mat-error *ngIf="registerForm.controls.userName.invalid ||
+                              registerForm.controls.userName.dirty &&
+                              registerForm.controls.userName.touched ">Только латиница ! Мин длинна 4 символа ! </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput  type="password" formControlName="password">
+          <mat-error *ngIf="registerForm.controls.password.invalid ||
+                              registerForm.controls.password.dirty &&
+                              registerForm.controls.password.touched ">Только латиница ! Мин длинна 4 символа ! </mat-error>
+
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput  type="email" formControlName="email">
+          <mat-error *ngIf="registerForm.controls.email.invalid ||
+                              registerForm.controls.email.dirty &&
+                              registerForm.controls.email.touched ">Не корректно введен адрес</mat-error>
+
+        </mat-form-field>
+        <div mat-dialog-actions align="end">
+          <button mat-raised-button [mat-dialog-close]="true" [disabled]="registerForm.invalid"  (click)="data.onClickFN( registerForm.controls.userName.value,  registerForm.controls.password.value , registerForm.controls.email.value)">Go</button>
+          <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        </div>
+      </span>
+</span>

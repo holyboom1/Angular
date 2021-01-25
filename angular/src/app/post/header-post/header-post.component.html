@@ -1,4 +1,10 @@
-<div class="row justify-content-center">
-  <div class="col-3">user icon </div>
-  <div class="col align-content-left">{{name | mypipe : gender}}</div>
-</div>
+
+  <mat-card-header>
+    <div mat-card-avatar style="background-image: url({{src}});
+                                background-size: cover;
+                                background-position: center"></div>
+    <mat-card-title>{{name | mypipe : gender}}</mat-card-title>
+    <mat-card-subtitle>{{gender}}</mat-card-subtitle>
+  </mat-card-header>
+
+

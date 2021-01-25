@@ -1,12 +1,14 @@
 
 
 
-<div [formControlName]="conmmentForm" class="col justify-content-center w-100">
-  <input  class="form-control form-control-sm m-1" name="name" placeholder="name" [formControlName]="name"  >
-  <input  class="form-control form-control-sm m-1"  name="comment" placeholder="comment"  [formControlName]="comment">
+<div  class="col justify-content-center w-100" [formGroup]="commentForm">
+  <input  class="form-control form-control-sm m-1" placeholder="name" formControlName="userName"  >
+  <mat-card *ngIf="commentForm.controls.userName.invalid && commentForm.controls.userName.dirty && commentForm.controls.userName.touched ">Длина должна быть от 4 до 10 символов!</mat-card>
+  <input  class="form-control form-control-sm m-1" placeholder="comment" formControlName="comment">
+  <mat-card *ngIf="commentForm.controls.comment.invalid && commentForm.controls.comment.dirty && commentForm.controls.comment.touched ">Длина должна быть от 4 до 20 символов!</mat-card>
 
   <div class="row justify-content-center">
-    <button mat-raised-button [disabled]="!conmmentForm.valid">send</button>
+    <button mat-raised-button color="warn" [disabled]="!commentForm.valid" (click)="submit()">send</button>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CookieService} from "../../../../services/cookie.service";
 
 
 @Component({
@@ -9,32 +10,34 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class AddcommentComponent implements OnInit {
 
-  @Output() newComment = new EventEmitter()
-  constructor() { }
+  @Output() newComment : EventEmitter<any> = new EventEmitter<object>()
+
+  constructor(private cookie : CookieService) { }
+
+  login : number | null
 
   ngOnInit(): void {
+    this.login = this.cookie.getCookie("login")
   }
-  comment
-  name
-  // addComment(name, comment){
-  //   if ((this.comment&&this.name)!=undefined) {
-  //     this.newComment.emit({name: name, comment: comment})
-  //   }
-  // }
-  // setName(event){
-  //   this.name=event.target.value
-  // }
-  //
-  // setComment(event){
-  //   this.comment=event.target.value
-  // }
-  conmmentForm = new FormGroup(
+
+
+  submit(){
+    this.newComment.emit(this.commentForm.value)
+    this.commentForm.reset()
+  }
+
+  // <!-- {{conmmentForm.value | json}}-->
+  // <!--  {{conmmentForm.controls.comment.errors | json}}-->
+
+  commentForm = new FormGroup(
     {
-      name : new FormControl( this.name ,  [Validators.required,
-        Validators.minLength(4), Validators.maxLength(10)])
+      userName : new FormControl( "", [Validators.required,
+        Validators.minLength(4), Validators.maxLength(10)],
+        )
       ,
-      comment : new FormControl( this.comment ,  [Validators.required,
-        Validators.minLength(4), Validators.maxLength(100)])
+      comment : new FormControl( "", [Validators.required,
+        Validators.minLength(4), Validators.maxLength(20)])
     }
   )
-  }
+
+}

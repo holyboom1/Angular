@@ -9,6 +9,7 @@ export class FooterOfPostComponent implements OnInit {
 
   @Input() likes;
   @Input() comments;
+  @Input() idItem;
 
   constructor() { }
 

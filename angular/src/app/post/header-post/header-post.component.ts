@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-
 @Component({
   selector: 'app-header-post',
   templateUrl: './header-post.component.html',
@@ -8,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HeaderPostComponent implements OnInit {
   @Input() name;
   @Input() gender;
+  @Input() src;
   constructor() { }
 
   ngOnInit(): void {

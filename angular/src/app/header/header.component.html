@@ -1,22 +1,25 @@
 
 <div class="border-bottom mt-1 p-2 rounded row justify-content-around">
   <div class="col-3 ">
-    <img src="/assets/img/logo.png"/>
+    <i [routerLink]="['/']"><img src="/assets/img/logo.png"/></i>
   </div>
   <div class="col-4 ">
-    <input type="text" placeholder="поиск">
+
   </div>
-  <div class="col-3">
+  <div class="col-5">
     <button appSelected class="btn" ><i [routerLink]="['/']"><i-bs
       name="house-door"
       class="text-muted"
      >
     </i-bs></i></button>
+    <span *ngIf="login!= 1">
+      <button mat-raised-button color="warn" (click)="Login()">Login</button>
+      <button mat-raised-button color="warn" (click)="Register()">Register</button>
 
+    </span>
+
+    <ng-template [ngIf]="login == 1 ">
+      <button mat-raised-button color="primary" (click)="LogOF()">LogOFF</button>
+    </ng-template>
   </div>
-
-
-
-
-
 </div>
